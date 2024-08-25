@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -12,8 +13,6 @@ export class LoginPage implements OnInit {
     password:""
   }
 
-  constructor() { }
-
   ngOnInit() {
   }
 
@@ -24,13 +23,29 @@ export class LoginPage implements OnInit {
   }
 
   validarLogin(model:any){
-    if(model.usuario==""){
+    if(model.usuario=="" || model.usuario.length > 8 || model.usuario.length < 3){
       return "Usuario vacio";
     }else if(model.password==""){
+      this.presentAlert();
       return "Password vacio";
     }
 
     return "Campos completos";
 
   }
-}
+
+constructor(private alertController: AlertController) {}
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'A Short Title Is Best',
+      subHeader: 'A Sub Header Is Optional',
+      message: 'A message should be a short, complete sentence.',
+      buttons: ['Action'],
+    });
+
+    await alert.present();
+  }
+
+}  
+
