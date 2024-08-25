@@ -25,3 +25,42 @@
 #container a {
   text-decoration: none;
 }
+
+
+ion-content {
+  --background: #000000;
+  color: #FF6F00;
+}
+
+ion-card {
+  background-color: #1a1a1a;
+  color: #FF6F00;
+}
+
+ion-card-title,
+ion-label,
+ion-input{
+  color: #FF6F00;
+}
+
+ion-toolbar {
+  background-color: #1a1a1a;
+  color: #FF6F00;
+}
+
+h1 {
+  color: #FF6F00;
+}
+
+.buttonLimpiar, .buttonMostrar {
+  --background: #FF6F00;
+  --color: #000000;
+  --border-radius: 8px;
+  --padding: 10px 20px;
+  margin-top: 15px;
+}
+
+.buttonLimpiar:hover, .buttonMostrar:hover {
+  --background: #ef802b;
+}
+
