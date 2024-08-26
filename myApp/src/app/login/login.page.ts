@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { NavigationExtras, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import type { IonInput } from '@ionic/angular';
 
@@ -25,12 +26,22 @@ export class LoginPage implements OnInit {
   validarLogin(model:any){
     if(model.usuario=="" || model.usuario.length > 8 || model.usuario.length < 3){
       this.presentAlert();
+      return false;
     }else if(model.password=="" || model.password.length != 4){
       this.presentAlert();
+      return false;
     }
+
+    let navigationExtras:NavigationExtras={
+      state: {user:this.login.usuario} 
+    }
+
+    this.router.navigate(['home'],navigationExtras);
+
+    return true;
   }
 
-constructor(private alertController: AlertController) {}
+constructor(private alertController: AlertController, private router:Router) {}
 
   async presentAlert() {
     const alert = await this.alertController.create({

@@ -34,7 +34,7 @@
 
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import "@ionic/angular/css/palettes/dark.system.css";
+@import '@ionic/angular/css/palettes/dark.always.css';
 
   .alertaLogin {
     --background: #000; 
@@ -69,3 +69,123 @@
     background: #000; 
     color: #FF6F00; 
   }
+
+  #container {
+    text-align: center;
+  
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  #container strong {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  
+  #container p {
+    font-size: 16px;
+    line-height: 22px;
+  
+    color: #8c8c8c;
+  
+    margin: 0;
+  }
+  
+  #container a {
+    text-decoration: none;
+  }
+  
+  
+  ion-content {
+    --background: #000000;
+    color: #FF6F00;
+  }
+  
+  ion-card {
+    background-color: #1a1a1a;
+    color: #FF6F00;
+  }
+  
+  ion-card-title,
+  ion-label{
+    color: #FF6F00;
+  }
+  
+  ion-toolbar {
+    background-color: #1a1a1a;
+    color: #FF6F00;
+  }
+  
+  h1 {
+    color: #FF6F00;
+  }
+  
+  .buttonLimpiar, .buttonMostrar {
+    --background: #FF6F00;
+    --color: #000000;
+    --border-radius: 8px;
+    --padding: 10px 20px;
+    margin-top: 15px;
+  }
+  
+  .buttonLimpiar:hover, .buttonMostrar:hover {
+    --background: #ef802b;
+  }
+  
+  .header-custom {
+    background-color: #000;
+  }
+  
+  .toolbar-custom ion-title {
+    color: #FF6F00;
+  }
+  
+  .content-custom {
+    background-color: #000;
+    color: #FF6F00;
+  }
+  
+  .welcome-text {
+    color: #FF6F00;
+  }
+  
+  .card-custom {
+    background-color: #000;
+    color: #FF6F00;
+    border: 1px solid #FF6F00;
+  }
+  
+  .card-custom ion-card-title {
+    color: #FF6F00;
+  }
+  
+  .input-item {
+    --background: #000;
+    --color: #FF6F00;
+    --placeholder-color: #FF6F00;
+  }
+  
+  .login-button {
+    --background: #000;
+    --color: #FF6F00;
+    --border-color: #FF6F00;
+    --border-radius: 20px;
+    margin-top: 20px;
+  }
+  
+  .login-button:hover {
+    --background: #FF6F00;
+    --color: #000;
+  }
+
+a{
+  color: #FF6F00;
+}
+
+ion-label{
+  color:#FF6F00;
+}
+  
