@@ -24,7 +24,8 @@ export class LoginPage implements OnInit {
 
   validarLogin(model:any){
     if(model.usuario=="" || model.usuario.length > 8 || model.usuario.length < 3){
-      return "Usuario vacio";
+      this.presentAlert();
+        return "Usuario vacio";
     }else if(model.password==""){
       this.presentAlert();
       return "Password vacio";
