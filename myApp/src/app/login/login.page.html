@@ -21,7 +21,12 @@
         </ion-item>
     
         <ion-item>
-          <ion-input [(ngModel)]="login.password" placeholder="Contraseña" type="password"></ion-input>
+          <ion-input [(ngModel)]="login.password" placeholder="Contraseña" type="password"
+          [value]="inputModel"
+          maxLength="4"
+          (ionInput)="onInput($event)"
+          #ionInputLog
+          ></ion-input>
         </ion-item>
       </ion-list>
     
