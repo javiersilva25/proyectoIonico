@@ -33,11 +33,23 @@ export class HomePage {
   mostrarDatos() {
     const nombre = (document.getElementById('nombre') as HTMLInputElement).value;
     const apellido = (document.getElementById('apellido') as HTMLInputElement).value;
-    const nivelEducacional = (document.getElementById('nivelEducacional') as HTMLIonSelectElement).value;
-    const fechaNac = (document.getElementById('fechaNac') as HTMLIonDatetimeElement).value;
-  
-    alert(`Nombre: ${nombre}\nApellido: ${apellido}\nNivel Educacional: ${nivelEducacional}\nFecha de nacimiento: ${fechaNac}`);
-  }
-  
+    const nivelEducacional = (document.getElementById('nivelEducacional') as HTMLSelectElement).value;
+    const fechaNac = (document.getElementById('fechaNac') as HTMLInputElement).value;
+    
+    this.presentAlert(nombre, apellido, nivelEducacional, fechaNac);
+}
+
+async presentAlert(nombre: string, apellido: string, nivelEducacional: string, fechaNac: string) {
+    const alert = await this.alertController.create({
+      header: 'Información de Usuario',
+      message: `Nombre: ${nombre} ${apellido} Nivel Educacional: ${nivelEducacional}\nFecha de nacimiento: ${fechaNac}`,
+      cssClass: 'alertaLogin',
+      buttons: [{ text: 'OK', cssClass: 'alert-button' }],
+    });
+
+    await alert.present();
+}
+
+
 }
 

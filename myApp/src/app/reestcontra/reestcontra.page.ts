@@ -35,8 +35,8 @@ export class ReestcontraPage implements OnInit {
 
   async presentAlert() {
     const alert = await this.alertController.create({
-      header: 'El usuario debe tener entre 3 a 8 caracteres',
-      message: 'Usuario incorrecto',
+      header: 'Usuario incorrecto',
+      message: 'El usuario debe tener entre 3 a 8 caracteres',
       cssClass: 'alertaReest',
       buttons: [{text: 'OK',
       cssClass: 'alert-button'}],

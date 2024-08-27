@@ -70,6 +70,33 @@
     color: #FF6F00; 
   }
 
+  .alertReest {
+    --background: #000; 
+  }
+
+  .alertaReest .alert-title {
+    color: #FF6F00; 
+    font-size: 20px; 
+    font-weight: bold; 
+  }
+  
+  .alertaReest .alert-message {
+    color: #FF6F00; 
+    font-size: 16px; 
+  }
+  
+  .alertaReest .alert-button {
+    background: #FF6F00; 
+    color: #000; 
+    border-radius: 20px; 
+    margin-top: 10px; 
+  }
+  
+  .alertaReest .alert-button:hover {
+    background: #000; 
+    color: #FF6F00; 
+  }
+
   #container {
     text-align: center;
   
