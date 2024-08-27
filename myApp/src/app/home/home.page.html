@@ -17,16 +17,15 @@
     <ion-card-content>
       <ion-list>
         <ion-item>
-          <ion-input label="Nombre" id="nombre"></ion-input>
+          <ion-input  labelPlacement="stacked" label="Nombre" id="nombre"></ion-input>
         </ion-item>
       
         <ion-item>
-          <ion-input label="Apellido" id="apellido"></ion-input>
+          <ion-input labelPlacement="stacked" label="Apellido" id="apellido"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label>Nivel Educacional</ion-label>
-          <ion-select id="nivelEducacional" placeholder="Seleccione un nivel">
+          <ion-select value="" labelPlacement="stacked" id="nivelEducacional" placeholder="Seleccione un nivel" label="Nivel educacional">
             <ion-select-option value="Basica">Básica</ion-select-option>
             <ion-select-option value="Media">Media</ion-select-option>
             <ion-select-option value="Tecnica">Técnica</ion-select-option>
@@ -36,7 +35,7 @@
         </ion-item>
         
         <ion-item>
-          <ion-input type="date" label="Fecha de nacimiento" id="fechaNac"></ion-input>
+          <ion-input type="date" labelPlacement="stacked" label="Fecha de nacimiento" id="fechaNac"></ion-input>
         </ion-item>
 
       </ion-list>
