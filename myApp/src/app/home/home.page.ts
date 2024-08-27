@@ -7,6 +7,7 @@ import { Router,NavigationExtras,ActivatedRoute } from '@angular/router';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
+
 export class HomePage {
   
   usuario: String = '';
@@ -33,11 +34,23 @@ export class HomePage {
   mostrarDatos() {
     const nombre = (document.getElementById('nombre') as HTMLInputElement).value;
     const apellido = (document.getElementById('apellido') as HTMLInputElement).value;
-    const nivelEducacional = (document.getElementById('nivelEducacional') as HTMLIonSelectElement).value;
-    const fechaNac = (document.getElementById('fechaNac') as HTMLIonDatetimeElement).value;
+    const nivelEducacional = (document.getElementById('nivelEducacional') as HTMLSelectElement).value;
+    const fechaNac = (document.getElementById('fechaNac') as HTMLInputElement).value;
+
+    this.presentAlert(nombre, apellido, nivelEducacional, fechaNac);
+}
+
+async presentAlert(nombre: string, apellido: string, nivelEducacional: string, fechaNac: string) {
+  const html = `Nombre: ${nombre} ${apellido}<br>Nivel Educacional: ${nivelEducacional}<br>Fecha de nacimiento: ${fechaNac}`  
   
-    alert(`Nombre: ${nombre}\nApellido: ${apellido}\nNivel Educacional: ${nivelEducacional}\nFecha de nacimiento: ${fechaNac}`);
-  }
-  
+  const alert = await this.alertController.create({
+      header: 'Información de Usuario',
+      message: html,
+      cssClass: 'alertaLogin',
+      buttons: [{ text: 'OK', cssClass: 'alert-button' }],
+    });
+
+    await alert.present();
+}
 }
 
