@@ -73,7 +73,7 @@ export class LoginPage implements OnInit {
 
   async loadingUI() {
     const loading = await this.loadingController.create({
-      message: "",
+      message: "Cargando...",
       duration: 5000,
       spinner: "lines"
     });

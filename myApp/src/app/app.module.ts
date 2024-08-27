@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { LoadingController } from '@ionic/angular';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,4 +19,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, provideAnimationsAsync()],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+
+export class AppModule {
+
+
+}
