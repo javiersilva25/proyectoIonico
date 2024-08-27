@@ -41,6 +41,13 @@ export class LoginPage implements OnInit {
     return true;
   }
 
+  redireccionReestablecer(){
+    this.router.navigate(['reestcontra']);
+
+  }
+
+  
+
 constructor(private alertController: AlertController, private router:Router) {}
 
   async presentAlert() {

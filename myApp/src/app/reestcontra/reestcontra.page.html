@@ -1,0 +1,24 @@
+<ion-header class="ion-text-center" [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Reestablecer contraseña</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-text-center" [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Ingresa tu nombre de usuario</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-input [(ngModel)]="reestcontra.usuario" placeholder="Usuario"></ion-input>
+        </ion-item>
+      </ion-list>
+      
+      <ion-button expand="block" shape="round" fill="outline" class="reest-button">Reestablecer</ion-button>
+      
+    </ion-card-content>
+  </ion-card>
+</ion-content>

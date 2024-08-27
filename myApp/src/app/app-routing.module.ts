@@ -19,6 +19,10 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
+  {
+    path: 'reestcontra',
+    loadChildren: () => import('./reestcontra/reestcontra.module').then( m => m.ReestcontraPageModule)
+  },
 
 ];
 
