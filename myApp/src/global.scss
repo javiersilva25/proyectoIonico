@@ -167,11 +167,12 @@
   }
   
   .header-custom {
-    background-color: #000;
+    background-color: #000000;
   }
   
   .toolbar-custom ion-title {
     color: #FF6F00;
+    background-color: #000000;
   }
   
   .content-custom {
@@ -222,4 +223,38 @@ ion-label{
   color:#FF6F00;
   cursor: pointer;
 }
-  
+
+ion-header {
+  background-color: #FF6F00;
+}
+
+ion-toolbar ion-title {
+  color:#FF6F00;
+}
+
+ion-content {
+  background-color: black;
+}
+
+ion-list ion-item {
+  color:#FF6F00;
+}
+
+ion-item ion-icon {
+  color: #FF6F00;
+}
+
+ion-img {
+  width: 70px;
+  height: 70px;
+  margin-left: 7rem;
+}
+
+ion-button {
+  --color: black;
+  --background: #FF6F00;
+}
+
+ion-button:hover {
+  opacity: 0.8;
+}

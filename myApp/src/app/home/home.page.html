@@ -1,14 +1,51 @@
+<ion-menu side="start" menuId="first" contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title style="color: #FF6F00">Menú</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="closeMenu()" style="color: #FF6F00">
+          <ion-icon name="close-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <ion-item routerLink="/home" routerDirection="root">
+        <ion-icon slot="start" name="home-outline"></ion-icon>
+        <ion-label>Inicio</ion-label>
+      </ion-item>
+      <ion-item routerLink="/entrenamientos" routerDirection="root">
+        <ion-icon slot="start" name="barbell-outline"></ion-icon>
+        <ion-label>Entrenamientos</ion-label>
+      </ion-item>
+      <ion-item routerLink="/entrenadores" routerDirection="root">
+        <ion-icon slot="start" name="people-outline"></ion-icon>
+        <ion-label>Entrenadores</ion-label>
+      </ion-item>
+      <ion-item routerLink="/logout" routerDirection="root">
+        <ion-icon slot="start" name="log-out-outline"></ion-icon>
+        <ion-label>Cerrar sesión</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
 <ion-header [translucent]="true">
   <ion-toolbar class="ion-text-center">
-    <ion-title>GYM POGGERS</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-img src="https://i.ibb.co/M5WgCXd/Captura-de-Pantalla-2024-08-29-a-la-s-17-12-08-removebg-preview.png" alt="gym"></ion-img>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content id="main-content" [fullscreen]="true">
   <h1 class="ion-text-center">
     ¡Bienvenido!
   </h1>
-        <p class="ion-text-center" *ngIf="usuario">Usuario: {{usuario}}</p>
+  <p class="ion-text-center" *ngIf="usuario">Usuario: {{usuario}}</p>
   <ion-card class="ion-text-center card-custom">
     <ion-card-header>
       <ion-card-title>Información Adicional</ion-card-title>
@@ -17,7 +54,7 @@
     <ion-card-content>
       <ion-list>
         <ion-item>
-          <ion-input  labelPlacement="stacked" label="Nombre" id="nombre"></ion-input>
+          <ion-input labelPlacement="stacked" label="Nombre" id="nombre"></ion-input>
         </ion-item>
       
         <ion-item>
@@ -37,17 +74,12 @@
         <ion-item>
           <ion-input type="date" labelPlacement="stacked" label="Fecha de nacimiento" id="fechaNac"></ion-input>
         </ion-item>
-
       </ion-list>
 
       <div class="ion-text-center">
-        <ion-button class = "buttonLimpiar" (click)="limpiarFormulario()">Limpiar</ion-button>
-        <ion-button class = "buttonMostrar" (click)="mostrarDatos()">Mostrar</ion-button>
+        <ion-button class="buttonLimpiar" (click)="limpiarFormulario()">Limpiar</ion-button>
+        <ion-button class="buttonMostrar" (click)="mostrarDatos()">Mostrar</ion-button>
       </div>
-
-
-
     </ion-card-content>
   </ion-card>
 </ion-content>
-

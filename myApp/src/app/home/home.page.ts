@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { Router,NavigationExtras,ActivatedRoute } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,10 @@ export class HomePage {
   
   usuario: String = '';
 
-  constructor(public alertController: AlertController,private activeroute: ActivatedRoute, private router: Router) {
+  constructor(public alertController: AlertController,
+              private activeroute: ActivatedRoute, 
+              private router: Router, 
+              private menu: MenuController) {
 
     this.activeroute.queryParams.subscribe(params => {
       const navigation = this.router.getCurrentNavigation();
@@ -51,5 +55,10 @@ async presentAlert(nombre: string, apellido: string, nivelEducacional: string, f
 
     await alert.present();
 }
+
+closeMenu() {
+  this.menu.close();
+}
+
 }
 
