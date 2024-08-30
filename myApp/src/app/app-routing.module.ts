@@ -23,6 +23,14 @@ const routes: Routes = [
     path: 'reestcontra',
     loadChildren: () => import('./reestcontra/reestcontra.module').then( m => m.ReestcontraPageModule)
   },
+  {
+    path: 'entrenamientos',
+    loadChildren: () => import('./entrenamientos/entrenamientos.module').then( m => m.EntrenamientosPageModule)
+  },
+  {
+    path: 'entrenadores',
+    loadChildren: () => import('./entrenadores/entrenadores.module').then( m => m.EntrenadoresPageModule)
+  },
 
 ];
 
