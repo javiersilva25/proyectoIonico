@@ -40,6 +40,7 @@
 
   .alertaLogin {
     --background: #000; 
+    width: 100%;
   }
   
   .alertaLogin .alert-wrapper{
@@ -47,6 +48,7 @@
     --border-radius: 15px; 
     --border-color: #FF6F00;
     padding: 15px;
+    width: 100%;
   }
 
   .alertaLogin .alert-title {
@@ -62,11 +64,16 @@
   
   .alertaLogin .alert-button {
     background: #FF6F00; 
-    color: #000; 
+    color: black; 
     border-radius: 20px; 
     margin-top: 10px; 
     width: 100%;
-    margin: auto;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
+    padding: 10px; 
+    box-sizing: border-box; 
   }
   
   .alertaLogin .alert-button:hover {
