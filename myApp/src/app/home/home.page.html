@@ -1,9 +1,9 @@
-<ion-menu side="start" menuId="first" contentId="main-content">
+<ion-menu side="start" menuId="first" contentId="main-content" class="menu-button-home">
   <ion-header>
     <ion-toolbar>
-      <ion-title style="color: #FF6F00">Menú</ion-title>
-      <ion-buttons slot="end">
-        <ion-button (click)="closeMenu()" style="color: #FF6F00">
+      <ion-title>Menú</ion-title>
+      <ion-buttons slot="end" >
+        <ion-button  (click)="closeMenu()">
           <ion-icon name="close-outline"></ion-icon>
         </ion-button>
       </ion-buttons>
@@ -45,7 +45,7 @@
   <h1 class="ion-text-center">
     ¡Bienvenido!
   </h1>
-  <p class="ion-text-center" *ngIf="usuario">Usuario: {{usuario}}</p>
+  <p class="ion-text-center" *ngIf="usuario"><ion-icon class="user-icon" name="person-circle-outline"></ion-icon>{{usuario}}</p>
   <ion-card class="ion-text-center card-custom">
     <ion-card-header>
       <ion-card-title>Información Adicional</ion-card-title>
@@ -77,8 +77,8 @@
       </ion-list>
 
       <div class="ion-text-center">
-        <ion-button class="buttonLimpiar" (click)="limpiarFormulario()">Limpiar</ion-button>
-        <ion-button class="buttonMostrar" (click)="mostrarDatos()">Mostrar</ion-button>
+        <ion-button class="home-button" expand="block" shape="round" fill="outline" (click)="limpiarFormulario()">Limpiar</ion-button>
+        <ion-button class="home-button" expand="block" shape="round" fill="outline" (click)="mostrarDatos()">Mostrar</ion-button>
       </div>
     </ion-card-content>
   </ion-card>

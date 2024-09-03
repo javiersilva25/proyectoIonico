@@ -2,4 +2,34 @@ ion-img {
     width: 70px;
     height: 70px;
     margin: auto;
-  }
+}
+  
+ion-content {
+  --background: #000000;
+  color: #FF6F00;
+}
+
+ion-card {
+  background-color: #1a1a1a;
+  color: #FF6F00;
+}
+
+ion-card-title,
+ion-label{
+  color: #FF6F00;
+}
+
+ion-toolbar {
+  background-color: #1a1a1a;
+  color: #FF6F00;
+}
+
+.reest-button {
+  --background: #000;
+  --color: #FF6F00;
+  --border-color: #FF6F00;
+  --border-radius: 20px;
+  margin-top: 20px;
+  --background-activated: #FF6F00;
+  transition: background 0.2s ease-in-out;
+}

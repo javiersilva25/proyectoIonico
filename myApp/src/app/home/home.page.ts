@@ -49,7 +49,7 @@ async presentAlert(nombre: string, apellido: string, nivelEducacional: string, f
   const alert = await this.alertController.create({
       header: 'Información de Usuario',
       message: html,
-      cssClass: 'alertaLogin',
+      cssClass: 'alertaHome',
       buttons: [{ text: 'OK', cssClass: 'alert-button' }],
     });
 
