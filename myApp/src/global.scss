@@ -36,25 +36,9 @@
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.always.css';
 
-.alertaLogin .alert-button {
-  color: #FF6F00; 
-}
-
-.alertaLogin {
-  --background: #000; 
-}
-
 .alertaLogin .alert-wrapper{
   border: 1px solid #ff6f0070;
   padding: 15px;
-}
-
-.alertaHome .alert-button {
-  color: #FF6F00; 
-}
-
-.alertaHome {
-  --background: #000; 
 }
 
 .alertaHome .alert-wrapper{

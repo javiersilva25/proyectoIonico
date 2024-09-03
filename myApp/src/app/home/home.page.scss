@@ -21,17 +21,9 @@ ion-toolbar {
 h1 {
   color: #FF6F00;
 }
-  
-.buttonLimpiar, .buttonMostrar {
-  --background: #FF6F00;
-  --color: #000000;
-  --border-radius: 8px;
-  --padding: 10px 20px;
-  margin-top: 15px;
-}
-  
-.buttonLimpiar:hover, .buttonMostrar:hover {
-  --background: #ef802b;
+
+.card-custom{
+  border: 1px solid #ff6f0070;
 }
 
 ion-img {
@@ -42,20 +34,10 @@ ion-img {
 
 .home-button {
   --background: #000;
-  --color: #FF6F00;
   --border-color: #FF6F00;
   --border-radius: 20px;
   margin-top: 20px;
-  --background-activated: #FF6F00;
   transition: 0.2s ease-in-out;
-}
-
-ion-toolbar ion-menu-button {
-  --color: #FF6F00; 
-}
-
-ion-menu ion-button ion-icon {
-  color: #FF6F00; 
 }
 
 .user-icon{
@@ -63,3 +45,4 @@ ion-menu ion-button ion-icon {
   font-size: 32px;
   vertical-align: middle;
 }
+

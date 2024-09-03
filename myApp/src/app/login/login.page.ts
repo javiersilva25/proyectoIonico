@@ -26,10 +26,10 @@ export class LoginPage implements OnInit {
 
   async validarLogin(model: any) {
     if (model.usuario === "" || model.usuario.length > 8 || model.usuario.length < 3) {
-      await this.presentAlert();
+      await this.presentAlert('El usuario debe tener entre 3 y 8 caracteres');
       return false;
     } else if (model.password === "" || model.password.length !== 4) {
-      await this.presentAlert();
+      await this.presentAlert('La contraseña debe estar compuesta de 4 dígitos');
       return false;
     }
 
@@ -38,7 +38,7 @@ export class LoginPage implements OnInit {
     setTimeout(() => {
       this.navigateAfterLoading();
       loading.dismiss();
-    }, 2000);
+    }, 1000);
 
     return true;
   }
@@ -47,10 +47,12 @@ export class LoginPage implements OnInit {
     this.router.navigate(['reestcontra']);
   }
 
-  async presentAlert() {
+  async presentAlert(mensaje: string) {
+    const msg = mensaje;
+
     const alert = await this.alertController.create({
       header: 'Error al iniciar sesión',
-      message: 'Usuario o contraseña incorrectos',
+      message: msg,
       cssClass: 'alertaLogin',
       buttons: [{ text: 'OK', cssClass: 'alert-button' }],
     });
@@ -74,7 +76,7 @@ export class LoginPage implements OnInit {
   async loadingUI() {
     const loading = await this.loadingController.create({
       message: "Cargando...",
-      duration: 5000,
+      duration: 1000,
       spinner: "lines"
     });
 
