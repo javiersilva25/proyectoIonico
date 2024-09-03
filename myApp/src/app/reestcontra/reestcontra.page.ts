@@ -27,6 +27,7 @@ export class ReestcontraPage implements OnInit {
     };
   
     this.router.navigate(['login'], navigationExtras);
+    this.alertaContrasenia()
     return true;
   }
   
@@ -37,6 +38,19 @@ export class ReestcontraPage implements OnInit {
     const alert = await this.alertController.create({
       header: 'Usuario incorrecto',
       message: 'El usuario debe tener entre 3 a 8 caracteres',
+      cssClass: 'alertaReest',
+      buttons: [{text: 'OK',
+      cssClass: 'alert-button'}],
+      
+    });
+
+    await alert.present();
+  }
+
+  async alertaContrasenia() {
+    const alert = await this.alertController.create({
+      header: 'Reestablecer Contraseña',
+      message: 'Se ha enviado un link a su correo para reestablecer su contraseña',
       cssClass: 'alertaReest',
       buttons: [{text: 'OK',
       cssClass: 'alert-button'}],
