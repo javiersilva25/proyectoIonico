@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-entrenamientos',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EntrenamientosPage implements OnInit {
 
-  constructor() { }
+  constructor(private menu: MenuController) { }
 
   ngOnInit() {
+  }
+
+  closeMenu() {
+    this.menu.close();
   }
 
 }
