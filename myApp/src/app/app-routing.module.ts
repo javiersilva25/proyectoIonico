@@ -32,9 +32,10 @@ const routes: Routes = [
     loadChildren: () => import('./entrenadores/entrenadores.module').then( m => m.EntrenadoresPageModule)
   },
   {
-    path: 'pagenotfound',
+    // En caso de cualquier error en la ruta se redirecciona al Not Found
+    path: '**',
     loadChildren: () => import('./pagenotfound/pagenotfound.module').then( m => m.PagenotfoundPageModule)
-  },
+  }
 
 ];
 
