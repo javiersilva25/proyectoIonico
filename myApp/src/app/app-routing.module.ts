@@ -31,6 +31,10 @@ const routes: Routes = [
     path: 'entrenadores',
     loadChildren: () => import('./entrenadores/entrenadores.module').then( m => m.EntrenadoresPageModule)
   },
+  {
+    path: 'pagenotfound',
+    loadChildren: () => import('./pagenotfound/pagenotfound.module').then( m => m.PagenotfoundPageModule)
+  },
 
 ];
 
