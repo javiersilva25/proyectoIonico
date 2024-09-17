@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { AlertController, LoadingController } from '@ionic/angular';
 import type { IonInput } from '@ionic/angular';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -18,11 +19,14 @@ export class LoginPage implements OnInit {
   constructor(
     private alertController: AlertController, 
     private router: Router,
-    private loadingController: LoadingController
+    private loadingController: LoadingController,
+    private authService: AuthService
   ) {}
 
   ngOnInit() {}
 
+
+  private token = 'tokensito98765'
 
   async validarLogin(model: any) {
     if (model.usuario === "" || model.usuario.length > 8 || model.usuario.length < 3) {
@@ -32,16 +36,18 @@ export class LoginPage implements OnInit {
       await this.presentAlert('La contraseña debe estar compuesta de 4 dígitos');
       return false;
     }
-
+    
     const loading = await this.loadingUI();
 
-    setTimeout(() => {
-      this.navigateAfterLoading();
+    setTimeout(async () => {
+      await this.navigateAfterLoading();
       loading.dismiss();
     }, 1000);
-
+  
     return true;
   }
+  
+  
 
   redireccionReestablecer() {
     this.router.navigate(['reestcontra']);
@@ -89,6 +95,12 @@ export class LoginPage implements OnInit {
       state: { user: this.login.usuario } 
     };
 
-    this.router.navigate(['home'], navigationExtras);
+    if (!this.authService.isAuthenticated()) {
+      this.router.navigate(['/login'])
+    }else{
+      this.authService.storeToken(this.token);
+      this.router.navigate(['/home'])
+    }
+
   }
 }
