@@ -95,13 +95,8 @@ export class LoginPage implements OnInit {
     let navigationExtras: NavigationExtras = {
       state: { user: this.login.usuario } 
     };
-    
-    if (!this.authService.isAuthenticated()) {
-      this.router.navigate(['/login'])
-    }else{
-      this.authService.storeToken(this.token);
-      this.router.navigate(['/home'])
-    }
+
+    this.authService.storeToken(this.token);
 
   }
 }
