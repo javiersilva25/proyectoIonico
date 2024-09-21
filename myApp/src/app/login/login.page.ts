@@ -96,7 +96,6 @@ export class LoginPage implements OnInit {
       state: { user: this.login.usuario } 
     };
 
-    this.authService.storeToken(this.token);
-
+    this.router.navigate(['home']);
   }
 }

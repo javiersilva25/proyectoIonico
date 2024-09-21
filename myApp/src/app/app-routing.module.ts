@@ -23,8 +23,7 @@ const routes: Routes = [
   },
   {
     path: 'reestcontra',
-    loadChildren: () => import('./reestcontra/reestcontra.module').then( m => m.ReestcontraPageModule),
-    canActivate:[AuthGuardService]
+    loadChildren: () => import('./reestcontra/reestcontra.module').then( m => m.ReestcontraPageModule)
   },
   {
     path: 'entrenamientos',

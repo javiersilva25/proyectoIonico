@@ -1,64 +1,50 @@
 import { Component } from '@angular/core';
-import { AlertController } from '@ionic/angular';
-import { Router,NavigationExtras,ActivatedRoute } from '@angular/router';
-import { MenuController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { MenuController, LoadingController } from '@ionic/angular';  // Importa LoadingController
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-
 export class HomePage {
   
-  usuario: String = '';
-
-  constructor(public alertController: AlertController,
-              private activeroute: ActivatedRoute, 
-              private router: Router, 
-              private menu: MenuController) {
-
-    this.activeroute.queryParams.subscribe(params => {
-      const navigation = this.router.getCurrentNavigation();
-      if (navigation && navigation.extras && navigation.extras.state) {
-        this.usuario = navigation.extras.state['user'];
-      }
-
-    });
+  constructor(
+    private router: Router,
+    private menu: MenuController,
+    private loadingController: LoadingController
+  ) {
+    this.router.navigate(['home/mi-perfil']);
   }
 
+  async segmentChanged($event: any) {
+    console.log($event.detail.value);
+    let direction = $event.detail.value;
 
-  limpiarFormulario() {
-    (document.getElementById('nombre') as HTMLInputElement).value = '';
-    (document.getElementById('apellido') as HTMLInputElement).value = '';
-    (document.getElementById('nivelEducacional') as HTMLIonSelectElement).value = '';
-    (document.getElementById('fechaNac') as HTMLIonDatetimeElement).value = '';
+    
+    const loading = await this.loadingUI();
+    
+    setTimeout(async () => {
+      await direction;
+      loading.dismiss();
+    }, 1000);
+    this.router.navigate(['home/' + direction]);
   }
 
-  mostrarDatos() {
-    const nombre = (document.getElementById('nombre') as HTMLInputElement).value;
-    const apellido = (document.getElementById('apellido') as HTMLInputElement).value;
-    const nivelEducacional = (document.getElementById('nivelEducacional') as HTMLSelectElement).value;
-    const fechaNac = (document.getElementById('fechaNac') as HTMLInputElement).value;
-    this.presentAlert(nombre, apellido, nivelEducacional, fechaNac);
-}
+  closeMenu() {
+    this.menu.close();
+  }
 
-async presentAlert(nombre: string, apellido: string, nivelEducacional: string, fechaNac: string) {
-  const html = `Nombre: ${nombre} ${apellido}<br>Nivel Educacional: ${nivelEducacional}<br>Fecha de nacimiento: ${fechaNac}`  
   
-  const alert = await this.alertController.create({
-      header: 'Información de Usuario',
-      message: html,
-      cssClass: 'alertaHome',
-      buttons: [{ text: 'OK', cssClass: 'alert-button' }],
+  async loadingUI() {
+    const loading = await this.loadingController.create({
+      message: "Cargando...",
+      duration: 1000,
+      spinner: "lines"
     });
 
-    await alert.present();
-}
+    await loading.present();
 
-closeMenu() {
-  this.menu.close();
+    return loading;
+  }
 }
-
-}
-

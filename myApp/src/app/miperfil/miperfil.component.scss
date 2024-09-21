@@ -1,0 +1,44 @@
+ion-content {
+    --background: #000000;
+    color: #FF6F00;
+  }
+    
+  ion-card {
+    background-color: #1a1a1a;
+    color: #FF6F00;
+  }
+    
+  ion-card-title,
+  ion-label{
+    color: #FF6F00;
+  }
+    
+  ion-toolbar {
+    background-color: #1a1a1a;
+    color: #FF6F00;
+  }
+  
+  h1 {
+    color: #FF6F00;
+  }
+  
+  .card-custom{
+    border: 1px solid #ff6f0070;
+  }
+  
+  
+  .home-button {
+    --background: #000;
+    --border-color: #FF6F00;
+    --border-radius: 20px;
+    margin-top: 20px;
+    transition: 0.2s ease-in-out;
+  }
+  
+  .user-icon{
+    margin-right: 5px;
+    font-size: 32px;
+    vertical-align: middle;
+  }
+  
+  
