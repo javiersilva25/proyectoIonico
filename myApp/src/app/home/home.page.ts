@@ -39,7 +39,7 @@ export class HomePage {
   async loadingUI() {
     const loading = await this.loadingController.create({
       message: "Cargando...",
-      duration: 1000,
+      duration: 500,
       spinner: "lines"
     });
 
