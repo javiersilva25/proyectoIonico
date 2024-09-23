@@ -3,7 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicModule } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { MiperfilComponent } from './miperfil/miperfil.component';  // Asegúrate de que el componente esté importado
+import { MiperfilComponent } from './miperfil/miperfil.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';  // Asegúrate de que el componente esté importado
 
 @NgModule({
   declarations: [
@@ -16,6 +17,9 @@ import { MiperfilComponent } from './miperfil/miperfil.component';  // Asegúrat
     AppRoutingModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [
+    provideAnimationsAsync()
+  ]
 })
 export class AppModule {}

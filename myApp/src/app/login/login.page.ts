@@ -26,7 +26,7 @@ export class LoginPage implements OnInit {
   ngOnInit() {}
 
 
-  
+  private token = 'tokensito98765'
 
   async validarLogin(model: any) {
     if (model.usuario === "" || model.usuario.length > 8 || model.usuario.length < 3) {
@@ -43,7 +43,9 @@ export class LoginPage implements OnInit {
       await this.navigateAfterLoading();
       loading.dismiss();
     }, 1000);
-  
+    
+    this.authService.storeToken(this.token)
+    this.router.navigate(['home']);
     return true;
   }
   
@@ -89,13 +91,11 @@ export class LoginPage implements OnInit {
     await loading.present();
     return loading;
   }
-  private token = 'tokensito98765'
 
   private navigateAfterLoading() {
     let navigationExtras: NavigationExtras = {
       state: { user: this.login.usuario } 
     };
 
-    this.router.navigate(['home']);
   }
 }

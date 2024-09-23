@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { MenuController, LoadingController } from '@ionic/angular';  // Importa LoadingController
+import { MenuController, LoadingController } from '@ionic/angular';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,8 @@ export class HomePage {
   constructor(
     private router: Router,
     private menu: MenuController,
-    private loadingController: LoadingController
+    private loadingController: LoadingController,
+    private authService: AuthService
   ) {
     this.router.navigate(['home/mi-perfil']);
   }
