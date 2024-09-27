@@ -1,0 +1,42 @@
+{
+  "entrenamientos": [
+    {
+      "id": 1,
+      "nombre": "Entrenamiento A",
+      "descripcion": "Entrenamiento de fuerza"
+    },
+    {
+      "id": 2,
+      "nombre": "Entrenamiento B",
+      "descripcion": "Entrenamiento cardiovascular"
+    }
+  ],
+  "usuarios": [
+    {
+      "id": 1,
+      "nombre": "Ian Reyes",
+      "email": "ian.reyes@example.com",
+      "rol": "admin"
+    },
+    {
+      "id": 2,
+      "nombre": "Ignacio Puyo",
+      "email": "puyo.puyo@example.com",
+      "rol": "usuario"
+    }
+  ],
+  "entrenadores": [
+    {
+      "id": 1,
+      "nombre": "Carlos Martínez",
+      "especialidad": "Fuerza"
+    },
+    {
+      "id": 2,
+      "nombre": "María González",
+      "especialidad": "Cardio"
+    }
+  ]
+}
+
+  

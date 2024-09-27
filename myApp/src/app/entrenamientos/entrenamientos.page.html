@@ -42,5 +42,12 @@
 </ion-header>
 
 <ion-content id="main-content" [fullscreen]="true">
-  
+  <ion-list>
+    <ion-item *ngFor="let entrenamiento of entrenamientos">
+      <ion-label>
+        <h2>Nombre: {{ entrenamiento.nombre }}</h2>
+        <p>Descripcion: {{ entrenamiento.descripcion }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
