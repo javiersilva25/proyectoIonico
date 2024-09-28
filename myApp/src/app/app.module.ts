@@ -4,8 +4,8 @@ import { IonicModule } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MiperfilComponent } from './miperfil/miperfil.component';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';  // Asegúrate de que el componente esté importado
-
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';  
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +14,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],
@@ -23,3 +24,4 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
   ]
 })
 export class AppModule {}
+

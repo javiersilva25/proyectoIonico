@@ -8,26 +8,26 @@ import { ServicioService } from '../servicio.service';
   styleUrls: ['./entrenamientos.page.scss'],
 })
 export class EntrenamientosPage implements OnInit {
+  entrenamientos: any[] = [];
 
-  constructor(private menu: MenuController,
-              private servicioService: ServicioService
-  ) { }
+  constructor(private menu: MenuController, private servicioService: ServicioService) {}
 
   ngOnInit() {
-  }
-
-  entrenamientos : any[] = []
-
-  getEntrenamientos(id: string) {
-    return this.servicioService.getEntrenamientos(id);
+    this.getAllEntrenamientos();
   }
 
   getAllEntrenamientos() {
-    return this.servicioService.getAllEntrenamientos();
+    this.servicioService.getAllEntrenamientos().subscribe(
+      (data: any) => {
+        this.entrenamientos = data;
+      },
+      (error) => {
+        console.error('Error al obtener entrenamientos', error);
+      }
+    );
   }
 
   closeMenu() {
     this.menu.close();
   }
-
 }
