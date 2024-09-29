@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { IonicModule } from '@ionic/angular';
+import { Router,NavigationExtras,ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-miperfil',
@@ -11,7 +12,18 @@ export class MiperfilComponent implements OnInit {
 
   usuario: string = '';
   
-  constructor(public alertController: AlertController) {}
+  constructor(public alertController: AlertController,
+              private activeroute: ActivatedRoute,
+              private router: Router
+  ) {
+    this.activeroute.queryParams.subscribe(params => {
+      const navigation = this.router.getCurrentNavigation();
+      if (navigation && navigation.extras && navigation.extras.state) {
+        this.usuario = navigation.extras.state['user'];
+      } 
+
+    });
+  }
 
   ngOnInit() {}
 

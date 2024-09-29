@@ -1,5 +1,31 @@
 ion-img {
-    width: 70px;
-    height: 70px;
-    margin-left: 7.5rem;
-  }
+  width: 70px;
+  height: 70px;
+  margin-left: 8rem;
+}
+
+ion-list {
+margin: 0;
+padding: 0;
+}
+
+ion-item:hover {
+transform: scale(1.02);
+}
+
+h2 {
+font-size: 20px;
+color: #FF6F00;
+margin: 0;
+}
+
+p {
+font-size: 15px;
+color: #ec8434;
+margin: 4px 0 0;
+}
+
+ion-thumbnail{
+width: 100px;
+height: 100px;
+}

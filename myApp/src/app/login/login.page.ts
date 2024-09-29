@@ -40,12 +40,11 @@ export class LoginPage implements OnInit {
     const loading = await this.loadingUI();
 
     setTimeout(async () => {
+      this.authService.storeToken(this.token)
       await this.navigateAfterLoading();
       loading.dismiss();
     }, 1000);
     
-    this.authService.storeToken(this.token)
-    this.router.navigate(['home']);
     return true;
   }
   
@@ -97,5 +96,6 @@ export class LoginPage implements OnInit {
       state: { user: this.login.usuario } 
     };
 
+    this.router.navigate(['home'], navigationExtras);
   }
 }

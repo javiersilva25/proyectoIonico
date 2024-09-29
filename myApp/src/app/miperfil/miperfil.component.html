@@ -3,7 +3,7 @@
     ¡Bienvenido!
   </h1>
   <p class="ion-text-center" *ngIf="usuario">
-    <ion-icon class="user-icon" name="person-circle-outline"></ion-icon>{{ usuario }}
+    <ion-icon class="user-icon" name="person-circle-outline"></ion-icon>{{usuario}}
   </p>
   <ion-card class="ion-text-center card-custom">
     <ion-card-header>
@@ -19,7 +19,7 @@
           <ion-input labelPlacement="stacked" label="Apellido" id="apellido"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-select labelPlacement="stacked" id="nivelEducacional" placeholder="Seleccione un nivel" label="Nivel educacional">
+          <ion-select labelPlacement="stacked" id="nivelEducacional" placeholder="Seleccione un nivel" label="Nivel educacional" value="">
             <ion-select-option value="Basica">Básica</ion-select-option>
             <ion-select-option value="Media">Media</ion-select-option>
             <ion-select-option value="Tecnica">Técnica</ion-select-option>

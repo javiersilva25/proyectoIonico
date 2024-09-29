@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 import { MenuController, LoadingController } from '@ionic/angular';
 import { AuthService } from '../auth.service';
 
@@ -16,8 +16,14 @@ export class HomePage {
     private loadingController: LoadingController,
     private authService: AuthService
   ) {
+    const navigation = this.router.getCurrentNavigation();
+    if (navigation && navigation.extras.state) {
+      this.router.navigate(['home/mi-perfil'], {
+        state: { user: navigation.extras.state['user'] }
+      });
+  }else{
     this.router.navigate(['home/mi-perfil']);
-  }
+  }}
 
   async segmentChanged($event: any) {
     console.log($event.detail.value);

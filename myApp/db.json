@@ -2,13 +2,15 @@
   "entrenamientos": [
     {
       "id": 1,
-      "nombre": "Entrenamiento A",
-      "descripcion": "Entrenamiento de fuerza"
+      "nombre": "Entrenamiento de Fuerza",
+      "descripcion": "El entrenamiento de fuerza es un tipo de ejercicio que se enfoca en mejorar la fuerza muscular y la resistencia mediante la utilización de pesas, máquinas de resistencia o el propio peso corporal.",
+      "imagen": "assets/img/fuerza.jpeg"
     },
     {
       "id": 2,
-      "nombre": "Entrenamiento B",
-      "descripcion": "Entrenamiento cardiovascular"
+      "nombre": "Entrenamiento Cardiovascular",
+      "descripcion": "El entrenamiento cardiovascular, también conocido como entrenamiento aeróbico, se centra en mejorar la resistencia del sistema cardiovascular y la eficiencia del corazón y los pulmones. ",
+      "imagen": "assets/img/cardio.jpg"
     }
   ],
   "usuarios": [
@@ -38,5 +40,3 @@
     }
   ]
 }
-
-  
