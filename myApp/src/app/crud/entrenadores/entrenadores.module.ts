@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { EntrenadoresPageRoutingModule } from './entrenadores-routing.module';
 
 import { EntrenadoresPage } from './entrenadores.page';
+import { AgregarEntrenadorComponent } from '../agregar-entrenador/agregar-entrenador.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,12 @@ import { EntrenadoresPage } from './entrenadores.page';
     IonicModule,
     EntrenadoresPageRoutingModule
   ],
-  declarations: [EntrenadoresPage]
+  
+  declarations: [
+    EntrenadoresPage, 
+    AgregarEntrenadorComponent
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class EntrenadoresPageModule {}
+
