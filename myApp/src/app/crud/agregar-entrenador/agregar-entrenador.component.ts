@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ServicioService } from 'src/app/servicio.service';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-agregar-entrenador',
   templateUrl: './agregar-entrenador.component.html',
