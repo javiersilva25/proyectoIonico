@@ -10,6 +10,8 @@ export class ServicioService {
 
   constructor(private http: HttpClient) {}
 
+    //MÉTODOS GET
+
   getEntrenamientos(id: string) {
     return this.http.get(`${this.apiURL}/entrenamientos/${id}`);
   }
@@ -33,4 +35,18 @@ export class ServicioService {
   getAllEntrenadores() {
     return this.http.get(`${this.apiURL}/entrenadores`);
   }
+<<<<<<< Updated upstream
+=======
+
+  //MÈTODOS POST
+
+  createEntrenamiento(post: any){
+    return this.http.post(this.apiURL+'/entrenamientos/',post,this.httpOptions);
+  }
+
+  agregarEntrenador(entrenador: any): Observable<any> {
+    return this.http.post(`${this.apiURL}/entrenadores`, entrenador);
+  }
+
+>>>>>>> Stashed changes
 }

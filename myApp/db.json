@@ -29,6 +29,7 @@
   ],
   "entrenadores": [
     {
+<<<<<<< Updated upstream
       "id": 1,
       "nombre": "Carlos Martínez",
       "especialidad": "Fuerza"
@@ -37,6 +38,11 @@
       "id": 2,
       "nombre": "María González",
       "especialidad": "Cardio"
+=======
+      "id": "7922",
+      "nombre": "Ian Puelles",
+      "especialidad": "Yoga"
+>>>>>>> Stashed changes
     }
   ]
 }
