@@ -34,11 +34,22 @@ const routes: Routes = [
     path: 'entrenadores',
     loadChildren: () => import('./entrenadores/entrenadores.module').then( m => m.EntrenadoresPageModule),
     canActivate:[AuthGuardService]
+  },  
+  {
+    path: 'crud-entrenamientos',
+    loadChildren: () => import('./crud/entrenamientos/entrenamientos.module').then( m => m.EntrenamientosPageModule)
   },
+  {
+    path: 'crud-entrenadores',
+    loadChildren: () => import('./crud/entrenadores/entrenadores.module').then( m => m.EntrenadoresPageModule)
+  },
+
+
+
   {
     path: '**',
     loadChildren: () => import('./pagenotfound/pagenotfound.module').then( m => m.PagenotfoundPageModule)
-  }
+  },
 
 ];
 

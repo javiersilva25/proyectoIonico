@@ -43,7 +43,6 @@ export class HomePage {
     this.menu.close();
   }
 
-  
   async loadingUI() {
     const loading = await this.loadingController.create({
       message: "Cargando...",
