@@ -43,14 +43,26 @@ export class ServicioService {
     return this.http.get(`${this.apiURL}/entrenadores`);
   }
 
-    //MÉTODOS POST
+  //MÉTODOS POST
+
+  //ENTRENAMIENTOS
 
   createEntrenamiento(post: any){
     return this.http.post(this.apiURL+'/entrenamientos/',post,this.httpOptions);
   }
 
+  //ENTRENADORES
+
   agregarEntrenador(entrenador: any): Observable<any> {
     return this.http.post(`${this.apiURL}/entrenadores`, entrenador);
+  }
+
+  actualizarEntrenador(id:string, entrenador:any):Observable<any>{
+    return this.http.put(`${this.apiURL}/entrenadores/${id}`, entrenador)
+  }
+
+  eliminarEntrenador(id:string): Observable<any>{
+    return this.http.delete(`${this.apiURL}/entrenadores/${id}`)
   }
 
 }
