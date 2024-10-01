@@ -12,7 +12,6 @@ export class AgregarEntrenamientoComponent  implements OnInit {
   nuevoEntrenamiento = {
     nombre: '',
     descripcion: '',
-    imagen: 'assets/img/fuerza.jpeg'
   };
 
   constructor(private servicioService: ServicioService, private router: Router) { }
@@ -20,8 +19,9 @@ export class AgregarEntrenamientoComponent  implements OnInit {
   ngOnInit() {}
 
   agregarEntrenamiento() {
-    this.servicioService.createEntrenamiento(this.nuevoEntrenamiento).subscribe((success: any)=>{
-      console.log(success);
+    this.servicioService.createEntrenamiento(this.nuevoEntrenamiento).subscribe((response: any)=>{
+      console.log(response);
+      this.router.navigate(['/entrenamientos']);
     },error=>{
       console.log(error);
     });

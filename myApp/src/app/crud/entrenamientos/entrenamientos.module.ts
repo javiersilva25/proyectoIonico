@@ -9,6 +9,7 @@ import { EntrenamientosPageRoutingModule } from './entrenamientos-routing.module
 import { EntrenamientosPage } from './entrenamientos.page';
 import { AgregarEntrenamientoComponent } from '../agregar-entrenamiento/agregar-entrenamiento.component';
 import { EliminarEntrenamientoComponent } from '../eliminar-entrenamiento/eliminar-entrenamiento.component';
+import { ActualizarEntrenamientoComponent } from '../actualizar-entrenamiento/actualizar-entrenamiento.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { EliminarEntrenamientoComponent } from '../eliminar-entrenamiento/elimin
   ],
   declarations: [EntrenamientosPage,
     AgregarEntrenamientoComponent,
-    EliminarEntrenamientoComponent
+    EliminarEntrenamientoComponent,
+    ActualizarEntrenamientoComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

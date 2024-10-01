@@ -4,16 +4,25 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content id="main-content" [fullscreen]="true">
-  <ion-list>
-    <ion-item *ngFor="let entrenamiento of entrenamientos">
-      <ion-thumbnail slot="start">
-        <img [src]="entrenamiento.imagen" alt="{{ entrenamiento.nombre }}">
-      </ion-thumbnail>
-      <ion-label>
-        <h2>{{ entrenamiento.nombre }}</h2>
-        <p>{{ entrenamiento.descripcion }}</p>
-      </ion-label>
-    </ion-item>
-  </ion-list>
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Selecciona un entrenamiento para eliminar</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Entrenamiento</ion-label>
+        <ion-select [(ngModel)]="entrenamientoId" placeholder="Seleccionar entrenamiento">
+          <ion-select-option *ngFor="let entrenamiento of entrenamientos" [value]="entrenamiento.id">
+            {{ entrenamiento.nombre }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="block" (click)="eliminarEntrenamiento()">
+    Eliminar entrenamiento
+  </ion-button>
 </ion-content>

@@ -36,7 +36,8 @@ export class EliminarEntrenadorComponent implements OnInit {
       this.servicioService.eliminarEntrenador(this.entrenadorSeleccionadoId).subscribe(
         (response) => {
           console.log('Entrenador eliminado exitosamente', response);
-          this.router.navigate(['/entrenadores']);
+          this.cargarEntrenadores();
+          this.router.navigate(['entrenadores/']);
         },
         (error) => {
           console.error('Error al eliminar el entrenador', error);

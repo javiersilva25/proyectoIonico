@@ -51,6 +51,14 @@ export class ServicioService {
     return this.http.post(this.apiURL+'/entrenamientos/',post,this.httpOptions);
   }
 
+  eliminarEntrenamiento(id:string): Observable<any>{
+    return this.http.delete(`${this.apiURL}/entrenamientos/${id}`);
+  }
+
+  actualizarEntrenamiento(id:string, entrenamiento:any):Observable<any>{
+    return this.http.put(`${this.apiURL}/entrenamientos/${id}`, entrenamiento)
+  }
+
   //ENTRENADORES
 
   agregarEntrenador(entrenador: any): Observable<any> {

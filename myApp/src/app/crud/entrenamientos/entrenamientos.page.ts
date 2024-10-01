@@ -16,6 +16,7 @@ export class EntrenamientosPage implements OnInit {
     private router: Router,) {}
 
   ngOnInit() {
+    //this.router.navigate(['crud-entrenamientos/agregar']);
     this.getAllEntrenamientos();
   }
 
@@ -38,6 +39,7 @@ export class EntrenamientosPage implements OnInit {
   }
 
   closeMenu() {
-    this.menu.close();
+    this.menu.toggle();
+    console.log(this.menu.isEnabled());
   }
 }

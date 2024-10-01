@@ -1,3 +1,36 @@
-<p>
-  actualizar-entrenamiento works!
-</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Editar Entrenamiento</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Selecciona un entrenamiento para editar</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Entrenamiento</ion-label>
+        <ion-select [(ngModel)]="entrenamientoId" placeholder="Seleccionar entrenamiento">
+          <ion-select-option *ngFor="let entrenamiento of entrenamientos" [value]="entrenamiento.id">
+            {{ entrenamiento.nombre }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-button (click)="cargarDatos()">
+        Cargar datos
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-input [(ngModel)]="entrenamientoNuevo.nombre"></ion-input>
+    <ion-input [(ngModel)]="entrenamientoNuevo.descripcion"></ion-input>
+  </ion-card>
+
+  <ion-button expand="block" (click)="editarEntrenamiento()">
+    Editar entrenamiento
+  </ion-button>
+</ion-content>

@@ -10,24 +10,42 @@ import { MenuController } from '@ionic/angular';
 })
 export class EliminarEntrenamientoComponent  implements OnInit {
   entrenamientos: any[] = [];
+  entrenamientoId: string = '';
 
   constructor(private menu: MenuController,
     private servicioService: ServicioService,
     private router: Router) { }
 
   ngOnInit() {
-    this.getAllEntrenamientos();
+    this.cargarEntrenamientos();
   }
 
-  getAllEntrenamientos() {
+  cargarEntrenamientos() {
     this.servicioService.getAllEntrenamientos().subscribe(
       (data: any) => {
         this.entrenamientos = data;
       },
       (error) => {
-        console.error('Error al obtener entrenamientos', error);
+        console.error('Error al cargar entrenamientos', error);
       }
     );
+  }
+
+  eliminarEntrenamiento() {
+    if (this.entrenamientoId) {
+      this.servicioService.eliminarEntrenamiento(this.entrenamientoId).subscribe(
+        (response) => {
+          console.log('Entrenamiento eliminado exitosamente', response);
+          this.cargarEntrenamientos();
+          this.router.navigate(['entrenamientos/']);
+        },
+        (error) => {
+          console.error('Error al eliminar el entrenamiento', error);
+        }
+      );
+    } else {
+      console.error('No se ha seleccionado ningún entrenamiento');
+    }
   }
 
   closeMenu() {
