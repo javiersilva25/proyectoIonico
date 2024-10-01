@@ -8,6 +8,8 @@ import { EntrenadoresPageRoutingModule } from './entrenadores-routing.module';
 
 import { EntrenadoresPage } from './entrenadores.page';
 import { AgregarEntrenadorComponent } from '../agregar-entrenador/agregar-entrenador.component';
+import { EliminarEntrenadorComponent } from '../eliminar-entrenador/eliminar-entrenador.component';
+import { ActualizarEntrenadorComponent } from '../actualizar-entrenador/actualizar-entrenador.component';
 
 @NgModule({
   imports: [
@@ -19,7 +21,9 @@ import { AgregarEntrenadorComponent } from '../agregar-entrenador/agregar-entren
   
   declarations: [
     EntrenadoresPage, 
-    AgregarEntrenadorComponent
+    AgregarEntrenadorComponent,
+    EliminarEntrenadorComponent,
+    ActualizarEntrenadorComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

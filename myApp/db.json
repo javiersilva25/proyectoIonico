@@ -29,9 +29,14 @@
   ],
   "entrenadores": [
     {
-      "id": "7922",
-      "nombre": "Ian Puelles",
-      "especialidad": "Yoga"
+      "id": "6eb9",
+      "nombre": "Ian Kings",
+      "especialidad": "Flojear"
+    },
+    {
+      "id": "a62a",
+      "nombre": "Vitocornú",
+      "especialidad": "Apostar"
     }
   ]
 }

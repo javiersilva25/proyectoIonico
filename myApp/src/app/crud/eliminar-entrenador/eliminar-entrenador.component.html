@@ -1,3 +1,28 @@
-<p>
-  eliminar-entrenador works!
-</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Eliminar Entrenador</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Selecciona un entrenador para eliminar</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Entrenadores</ion-label>
+        <ion-select [(ngModel)]="entrenadorSeleccionadoId" placeholder="Seleccionar entrenador">
+          <ion-select-option *ngFor="let entrenador of entrenadores" [value]="entrenador.id">
+            {{ entrenador.nombre }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="block" (click)="eliminarEntrenador()">
+    Eliminar Entrenador
+  </ion-button>
+</ion-content>
