@@ -1,3 +1,35 @@
-<p>
-  actualizar-entrenador works!
-</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Editar Entrenador</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Selecciona un entrenador</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-select [(ngModel)]="entrenadorId" placeholder="Seleccionar entrenador">
+          <ion-select-option *ngFor="let entrenador of entrenadores" [value]="entrenador.id">
+            {{ entrenador.nombre }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-button (click)="cargarDatos()">
+        Cargar datos
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-input labelPlacement="stacked" label="Nombre" [(ngModel)]="entrenadorNuevo.nombre"></ion-input>
+    <ion-input labelPlacement="stacked" label="Especialidad" [(ngModel)]="entrenadorNuevo.especialidad"></ion-input>
+  </ion-card>
+
+  <ion-button expand="block" (click)="editarEntrenador()">
+    Editar entrenador
+  </ion-button>
+</ion-content>

@@ -16,6 +16,7 @@ export class EntrenadoresPage implements OnInit {
               private router: Router) {}
 
   ngOnInit() {
+    this.router.navigate(['crud-entrenadores/agregar']);
     this.getAllEntrenadores();
   }
 
