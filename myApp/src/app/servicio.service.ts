@@ -43,6 +43,8 @@ export class ServicioService {
     return this.http.get(`${this.apiURL}/entrenadores`);
   }
 
+    //MÉTODOS POST
+
   createEntrenamiento(post: any){
     return this.http.post(this.apiURL+'/entrenamientos/',post,this.httpOptions);
   }

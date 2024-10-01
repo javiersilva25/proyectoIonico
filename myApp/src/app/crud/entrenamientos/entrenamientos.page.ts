@@ -30,21 +30,6 @@ export class EntrenamientosPage implements OnInit {
     );
   }
 
-  createEntrenamiento(){
-    var post={
-      id: 5,
-      nombre: "Entrenamiento Cardiovascular",
-      descripcion: "El entrenamiento cardiovascular, también conocido como entrenamiento aeróbico, se centra en mejorar la resistencia del sistema cardiovascular y la eficiencia del corazón y los pulmones. ",
-      imagen: "assets/img/cardio.jpg"
-    }
-    
-    this.servicioService.createEntrenamiento(post).subscribe((success: any)=>{
-    console.log(success);
-    },error=>{
-    console.log(error);
-    });
-  }
-
   async segmentChanged($event: any) {
     console.log($event.detail.value);
     let direction = $event.detail.value;

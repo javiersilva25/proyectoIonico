@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ServicioService } from 'src/app/servicio.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-agregar-entrenamiento',
@@ -7,8 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AgregarEntrenamientoComponent  implements OnInit {
 
-  constructor() { }
+  nuevoEntrenamiento = {
+    nombre: '',
+    descripcion: '',
+    imagen: 'assets/img/fuerza.jpeg'
+  };
+
+  constructor(private servicioService: ServicioService, private router: Router) { }
 
   ngOnInit() {}
 
+  agregarEntrenamiento() {
+    this.servicioService.createEntrenamiento(this.nuevoEntrenamiento).subscribe((success: any)=>{
+      console.log(success);
+    },error=>{
+      console.log(error);
+    });
+  }
 }
