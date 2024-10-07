@@ -7,12 +7,11 @@
 <ion-content>
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Selecciona un entrenador para eliminar</ion-card-title>
+      <ion-card-title>Selecciona un entrenador</ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
       <ion-item>
-        <ion-label>Entrenadores</ion-label>
         <ion-select [(ngModel)]="entrenadorSeleccionadoId" placeholder="Seleccionar entrenador">
           <ion-select-option *ngFor="let entrenador of entrenadores" [value]="entrenador.id">
             {{ entrenador.nombre }}
