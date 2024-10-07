@@ -40,6 +40,5 @@ export class EntrenamientosPage implements OnInit {
 
   closeMenu() {
     this.menu.toggle();
-    console.log(this.menu.isEnabled());
   }
 }

@@ -7,12 +7,11 @@
 <ion-content>
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Selecciona un entrenamiento para editar</ion-card-title>
+      <ion-card-title>Selecciona un entrenamiento</ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
       <ion-item>
-        <ion-label>Entrenamiento</ion-label>
         <ion-select [(ngModel)]="entrenamientoId" placeholder="Seleccionar entrenamiento">
           <ion-select-option *ngFor="let entrenamiento of entrenamientos" [value]="entrenamiento.id">
             {{ entrenamiento.nombre }}
@@ -26,11 +25,11 @@
   </ion-card>
 
   <ion-card>
-    <ion-input [(ngModel)]="entrenamientoNuevo.nombre"></ion-input>
-    <ion-input [(ngModel)]="entrenamientoNuevo.descripcion"></ion-input>
+    <ion-input labelPlacement="stacked" label="Nombre" [(ngModel)]="entrenamientoNuevo.nombre"></ion-input>
+    <ion-input labelPlacement="stacked" label="Descripción" [(ngModel)]="entrenamientoNuevo.descripcion"></ion-input>
   </ion-card>
 
   <ion-button expand="block" (click)="editarEntrenamiento()">
-    Editar entrenamiento
+    Guardar
   </ion-button>
 </ion-content>

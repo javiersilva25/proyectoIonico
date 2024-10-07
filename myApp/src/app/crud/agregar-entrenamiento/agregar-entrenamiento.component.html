@@ -8,16 +8,16 @@
   <form (ngSubmit)="agregarEntrenamiento()">
     <ion-list>
       <ion-item>
-        <ion-label position="floating">Nombre del entrenamiento</ion-label>
+        <ion-label position="stacked">Nombre del entrenamiento</ion-label>
         <ion-input [(ngModel)]="nuevoEntrenamiento.nombre" name="nombre" required></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label position="floating">Descripción</ion-label>
+        <ion-label position="stacked">Descripción</ion-label>
         <ion-input [(ngModel)]="nuevoEntrenamiento.descripcion" name="descripcion" required></ion-input>
       </ion-item>
 
-      <ion-button expand="block" type="submit">Agregar Entrenamiento</ion-button>
+      <ion-button expand="block" type="submit">Agregar</ion-button>
     </ion-list>
   </form>
 </ion-content>

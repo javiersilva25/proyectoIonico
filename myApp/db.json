@@ -1,9 +1,14 @@
 {
   "entrenamientos": [
     {
-      "nombre": "Victor",
-      "descripcion": "Papap",
+      "nombre": "Victor Cornou",
+      "descripcion": "Papapipo",
       "id": "abef"
+    },
+    {
+      "id": "9517",
+      "nombre": "VITOCO",
+      "descripcion": "RNOU"
     }
   ],
   "usuarios": [

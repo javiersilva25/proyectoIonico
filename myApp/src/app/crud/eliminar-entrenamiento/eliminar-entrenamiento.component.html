@@ -7,12 +7,11 @@
 <ion-content>
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Selecciona un entrenamiento para eliminar</ion-card-title>
+      <ion-card-title>Selecciona un entrenamiento</ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
       <ion-item>
-        <ion-label>Entrenamiento</ion-label>
         <ion-select [(ngModel)]="entrenamientoId" placeholder="Seleccionar entrenamiento">
           <ion-select-option *ngFor="let entrenamiento of entrenamientos" [value]="entrenamiento.id">
             {{ entrenamiento.nombre }}
@@ -23,6 +22,6 @@
   </ion-card>
 
   <ion-button expand="block" (click)="eliminarEntrenamiento()">
-    Eliminar entrenamiento
+    Eliminar
   </ion-button>
 </ion-content>
