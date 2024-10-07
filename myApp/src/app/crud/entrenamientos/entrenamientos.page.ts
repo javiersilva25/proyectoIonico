@@ -16,7 +16,7 @@ export class EntrenamientosPage implements OnInit {
     private router: Router,) {}
 
   ngOnInit() {
-    //this.router.navigate(['crud-entrenamientos/agregar']);
+    this.router.navigate(['crud-entrenamientos/agregar']);
     this.getAllEntrenamientos();
   }
 
