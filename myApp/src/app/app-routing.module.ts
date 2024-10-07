@@ -26,6 +26,10 @@ const routes: Routes = [
     loadChildren: () => import('./reestcontra/reestcontra.module').then( m => m.ReestcontraPageModule)
   },
   {
+    path: 'crearcuenta',
+    loadChildren: () => import('./crearcuenta/crearcuenta.module').then( m => m.CrearcuentaPageModule)
+  },
+  {
     path: 'entrenamientos',
     loadChildren: () => import('./entrenamientos/entrenamientos.module').then( m => m.EntrenamientosPageModule),
     canActivate:[AuthGuardService]
@@ -43,13 +47,11 @@ const routes: Routes = [
     path: 'crud-entrenadores',
     loadChildren: () => import('./crud/entrenadores/entrenadores.module').then( m => m.EntrenadoresPageModule)
   },
-
-
-
   {
     path: '**',
     loadChildren: () => import('./pagenotfound/pagenotfound.module').then( m => m.PagenotfoundPageModule)
   },
+
 
 ];
 

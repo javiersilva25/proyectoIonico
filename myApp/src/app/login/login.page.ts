@@ -54,6 +54,10 @@ export class LoginPage implements OnInit {
     this.router.navigate(['reestcontra']);
   }
 
+  redireccionCrearCuenta() {
+    this.router.navigate(['crearcuenta']);
+  }
+
   async presentAlert(mensaje: string) {
     const msg = mensaje;
 

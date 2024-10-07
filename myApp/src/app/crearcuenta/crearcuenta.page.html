@@ -1,0 +1,32 @@
+<ion-header [translucent]="true" class="header-custom">
+  <ion-toolbar class="ion-text-center toolbar-custom">
+    <ion-img src="assets/img/logo.png" alt="gym"></ion-img>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Crear Cuenta</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-list>
+    <ion-item>
+      <ion-input labelPlacement="stacked" label="Nombre"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-input labelPlacement="stacked" label="Correo Electrónico"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-input labelPlacement="stacked" label="Contraseña"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-input labelPlacement="stacked" label="Repetir Contraseña"></ion-input>
+    </ion-item>
+
+    <ion-button (click) = redireccionarLogin()>Enviar</ion-button>
+  </ion-list>  
+</ion-content>

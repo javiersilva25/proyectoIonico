@@ -20,5 +20,11 @@
       "rol": "usuario"
     }
   ],
-  "entrenadores": []
+  "entrenadores": [
+    {
+      "id": "0d23",
+      "nombre": "Ian Reyes",
+      "especialidad": "Analista"
+    }
+  ]
 }
