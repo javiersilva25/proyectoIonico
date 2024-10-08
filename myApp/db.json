@@ -7,18 +7,6 @@
     }
   ],
   "usuarios": [
-    {
-      "id": "1",
-      "nombre": "Ian Reyes",
-      "email": "ian.reyes@example.com",
-      "rol": "admin"
-    },
-    {
-      "id": "2",
-      "nombre": "Ignacio Puyo",
-      "email": "puyo.puyo@example.com",
-      "rol": "usuario"
-    }
   ],
   "entrenadores": [
     {
