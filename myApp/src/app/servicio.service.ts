@@ -43,6 +43,10 @@ export class ServicioService {
     return this.http.get(`${this.apiURL}/entrenadores`);
   }
 
+  getUsuarioNombre(usuario: string){
+    return this.http.get(`${this.apiURL}/usuarios?usuario=${usuario}`);
+  }
+
   //MÉTODOS POST
 
   //ENTRENAMIENTOS
@@ -86,5 +90,7 @@ export class ServicioService {
   eliminarUsuario(id:string): Observable<any>{
     return this.http.delete(`${this.apiURL}/usuarios/${id}`)
   }
+
+
 
 }

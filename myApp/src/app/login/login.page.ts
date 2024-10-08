@@ -3,6 +3,7 @@ import { NavigationExtras, Router } from '@angular/router';
 import { AlertController, LoadingController } from '@ionic/angular';
 import type { IonInput } from '@ionic/angular';
 import { AuthService } from '../auth.service';
+import { ServicioService } from '../servicio.service';
 
 @Component({
   selector: 'app-login',
@@ -16,11 +17,16 @@ export class LoginPage implements OnInit {
     password: ""
   };
 
+  usuario: string= '';
+
+  contrasena: string = '';
+
   constructor(
     private alertController: AlertController, 
     private router: Router,
     private loadingController: LoadingController,
-    private authService: AuthService
+    private authService: AuthService,
+    private servicioService: ServicioService
   ) {}
 
   ngOnInit() {}
@@ -29,14 +35,10 @@ export class LoginPage implements OnInit {
   private token = 'tokensito98765'
 
   async validarLogin(model: any) {
-    if (model.usuario === "" || model.usuario.length > 8 || model.usuario.length < 3) {
-      await this.presentAlert('El usuario debe tener entre 3 y 8 caracteres');
-      return false;
-    } else if (model.password === "" || model.password.length !== 4) {
-      await this.presentAlert('La contraseña debe estar compuesta de 4 dígitos');
+
+    if (!this.validarContrasena()){
       return false;
     }
-    
     const loading = await this.loadingUI();
 
     setTimeout(async () => {
@@ -102,4 +104,31 @@ export class LoginPage implements OnInit {
 
     this.router.navigate(['home'], navigationExtras);
   }
+
+  validarContrasena(){
+    this.servicioService.getUsuarioNombre(this.login.usuario).subscribe(
+      (data: any) => {
+
+        if (data){
+          this.usuario = data[0].password;
+        }
+
+      },
+      (error) => {
+        console.error('Error al obtener usuario', error);
+      }
+    );
+
+    this.contrasena = btoa(this.login.password);
+
+    if(this.contrasena === this.usuario && this.contrasena !== ''){
+      console.log('ola');
+      return true;
+    }else{
+      console.log('diablo')
+      return false;
+    }
+
+  }
+
 }

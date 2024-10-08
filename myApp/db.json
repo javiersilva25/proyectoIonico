@@ -7,6 +7,18 @@
     }
   ],
   "usuarios": [
+    {
+      "id": "9b71",
+      "usuario": "Javier",
+      "correo": "aaaaa",
+      "password": "MTIzNA=="
+    },
+    {
+      "id": "2950",
+      "usuario": "Ian",
+      "correo": "ola",
+      "password": "NDMyMQ=="
+    }
   ],
   "entrenadores": [
     {
