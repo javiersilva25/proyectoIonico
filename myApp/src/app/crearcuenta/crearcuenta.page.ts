@@ -21,6 +21,7 @@ export class CrearcuentaPage implements OnInit {
     usuario: "",
     correo: "",
     password: "",
+    rol: "usuario"
   };
 
   passwordRepetir:string = ""
