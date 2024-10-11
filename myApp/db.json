@@ -8,16 +8,18 @@
   ],
   "usuarios": [
     {
-      "id": "9b71",
-      "usuario": "Javier",
-      "correo": "aaaaa",
-      "password": "MTIzNA=="
+      "id": "1c1d",
+      "usuario": "admin",
+      "correo": "admin@example.com",
+      "password": "MTk5OA==",
+      "rol": "admin"
     },
     {
-      "id": "2950",
-      "usuario": "Ian",
-      "correo": "ola",
-      "password": "NDMyMQ=="
+      "id": "b004",
+      "usuario": "javier",
+      "correo": "javier@example.com",
+      "password": "MTIzNA==",
+      "rol": "usuario"
     }
   ],
   "entrenadores": [

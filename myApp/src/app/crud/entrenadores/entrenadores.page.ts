@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MenuController} from '@ionic/angular';
 import { ServicioService } from 'src/app/servicio.service';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth.service';
 
 @Component({
   selector: 'app-entrenadores',
@@ -13,7 +14,8 @@ export class EntrenadoresPage implements OnInit {
 
   constructor(private menu: MenuController, 
               private servicioService: ServicioService,
-              private router: Router) {}
+              private router: Router,
+              private authService: AuthService) {}
 
   ngOnInit() {
     this.router.navigate(['crud-entrenadores/agregar']);
@@ -40,5 +42,10 @@ export class EntrenadoresPage implements OnInit {
 
   closeMenu() {
     this.menu.close();
+  }
+
+  logout(){
+    this.authService.logout()
+    this.router.navigate(['login']);
   }
 }

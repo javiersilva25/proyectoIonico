@@ -17,9 +17,9 @@ export class LoginPage implements OnInit {
     password: ""
   };
 
-  usuario: string= '';
-
+  usuario: any = '';
   contrasena: string = '';
+  private token = 'tokensito98765';
 
   constructor(
     private alertController: AlertController, 
@@ -31,26 +31,23 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {}
 
-
-  private token = 'tokensito98765'
-
-  async validarLogin(model: any) {
-
-    if (!this.validarContrasena()){
+  async validarLogin() {
+    if (!await this.validarContrasena()) {
       return false;
     }
-    const loading = await this.loadingUI();
 
+    const loading = await this.loadingUI();
+    
     setTimeout(async () => {
-      this.authService.storeToken(this.token)
-      await this.navigateAfterLoading();
+      this.authService.storeToken(this.token, this.usuario.rol);
+
+      await this.validarRol();
+
       loading.dismiss();
     }, 1000);
-    
+
     return true;
   }
-  
-  
 
   redireccionReestablecer() {
     this.router.navigate(['reestcontra']);
@@ -60,75 +57,72 @@ export class LoginPage implements OnInit {
     this.router.navigate(['crearcuenta']);
   }
 
+  // Método para mostrar alertas
   async presentAlert(mensaje: string) {
-    const msg = mensaje;
-
     const alert = await this.alertController.create({
       header: 'Error al iniciar sesión',
-      message: msg,
+      message: mensaje,
       cssClass: 'alertaLogin',
       buttons: [{ text: 'OK', cssClass: 'alert-button' }],
     });
-
     await alert.present();
   }
 
+  // Método que maneja el input
   inputModel = '';
-
   @ViewChild('ionInputLog', { static: true }) ionInputLog!: IonInput;
 
   onInput(ev: Event) {
     const inputElement = ev.target as HTMLInputElement;
     const value = inputElement.value;
-
     const filteredValue = value.replace(/\D+/g, '');
-
     this.ionInputLog.value = this.inputModel = filteredValue;
   }
 
+  // Método para animación de carga
   async loadingUI() {
     const loading = await this.loadingController.create({
       message: "Cargando...",
       duration: 1000,
       spinner: "lines"
     });
-
     await loading.present();
     return loading;
   }
 
-  private navigateAfterLoading() {
-    let navigationExtras: NavigationExtras = {
-      state: { user: this.login.usuario } 
-    };
-
-    this.router.navigate(['home'], navigationExtras);
-  }
-
-  validarContrasena(){
-    this.servicioService.getUsuarioNombre(this.login.usuario).subscribe(
-      (data: any) => {
-
-        if (data){
-          this.usuario = data[0].password;
-        }
-
-      },
-      (error) => {
-        console.error('Error al obtener usuario', error);
+  async validarContrasena() {
+    try {
+      const data: any = await this.servicioService.getUsuarioNombre(this.login.usuario).toPromise();
+      
+      if (data) {
+        this.usuario = data[0];
       }
-    );
 
-    this.contrasena = btoa(this.login.password);
+      this.contrasena = btoa(this.login.password);
 
-    if(this.contrasena === this.usuario && this.contrasena !== ''){
-      console.log('ola');
-      return true;
-    }else{
-      console.log('diablo')
+      if (this.contrasena === this.usuario.password && this.contrasena !== '') {
+        return true;
+      } else {
+        await this.presentAlert('Contraseña incorrecta');
+        return false;
+      }
+    } catch (error) {
+      console.error('Error al obtener usuario', error);
+      await this.presentAlert('Error al validar el usuario');
       return false;
     }
-
   }
 
+  // Método para validar el rol y redirigir según el tipo de usuario
+  async validarRol() {
+    try {
+      if (this.usuario.rol === 'usuario') {
+        this.router.navigate(['home']);
+      } else if (this.usuario.rol === 'admin') {
+        this.router.navigate(['crud-entrenamientos/agregar']);
+      }
+    } catch (error) {
+      console.error('Error al obtener rol de usuario', error);
+    }
+  }
 }

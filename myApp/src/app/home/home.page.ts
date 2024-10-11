@@ -54,4 +54,9 @@ export class HomePage {
 
     return loading;
   }
+
+  logout(){
+    this.authService.logout()
+    this.router.navigate(['login']);
+  }
 }
