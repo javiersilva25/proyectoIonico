@@ -27,6 +27,12 @@ export class CrearcuentaPage implements OnInit {
   passwordRepetir:string = ""
 
   async crearCuenta() {
+
+    if (this.usuario.usuario === '' || this.usuario.correo === ''){
+      await this.presentAlert('Debe completar todos los campos');
+      return;
+    }
+
     if (this.usuario.password !== this.passwordRepetir) {
       await this.presentAlert('Las contraseñas no coinciden');
       return;
@@ -44,7 +50,28 @@ export class CrearcuentaPage implements OnInit {
 
   }
   
-  agregarUsuario() {
+  async agregarUsuario() {
+
+    try{
+      const data: any = await this.servicioService.getUsuarioNombre(this.usuario.usuario).toPromise();
+        
+      if (this.usuario.usuario === data[0].usuario){
+        await this.presentAlert('El nombre de usuario ya existe')
+      }else{
+
+        this.servicioService.agregarUsuario(this.usuario).subscribe(
+          (response) => {
+            console.log('Usuario agregado:', response);
+            this.router.navigate(['/login']);
+          },
+          (error) => {
+            console.error('Error al agregar usuario:', error);
+          }
+        );      
+
+      }
+  }catch{
+
     this.servicioService.agregarUsuario(this.usuario).subscribe(
       (response) => {
         console.log('Usuario agregado:', response);
@@ -53,8 +80,9 @@ export class CrearcuentaPage implements OnInit {
       (error) => {
         console.error('Error al agregar usuario:', error);
       }
-    );
+    ); 
 
+  }
 }
   async presentAlert(mensaje: string) {
     const msg = mensaje;
@@ -68,4 +96,9 @@ export class CrearcuentaPage implements OnInit {
 
     await alert.present();
 }
+
+  redireccionLogin() {
+    this.router.navigate(['login']);
+  }
+
 }
