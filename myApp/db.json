@@ -13,17 +13,25 @@
   ],
   "usuarios": [
     {
-      "id": "1",
-      "nombre": "Ian Reyes",
-      "email": "ian.reyes@example.com",
+      "id": "1c1d",
+      "usuario": "admin",
+      "correo": "admin@example.com",
+      "password": "MTk5OA==",
       "rol": "admin"
     },
     {
-      "id": "2",
-      "nombre": "Ignacio Puyo",
-      "email": "puyo.puyo@example.com",
+      "id": "b004",
+      "usuario": "javier",
+      "correo": "javier@example.com",
+      "password": "MTIzNA==",
       "rol": "usuario"
     }
   ],
-  "entrenadores": []
+  "entrenadores": [
+    {
+      "id": "0d23",
+      "nombre": "Ian Reyes",
+      "especialidad": "Analista"
+    }
+  ]
 }
