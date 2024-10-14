@@ -25,6 +25,13 @@
       "correo": "javier@example.com",
       "password": "MTIzNA==",
       "rol": "usuario"
+    },
+    {
+      "id": "9599",
+      "usuario": "vierja",
+      "correo": "vierja@example.com",
+      "password": "MTIzNA==",
+      "rol": "usuario"
     }
   ],
   "entrenadores": [
