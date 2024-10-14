@@ -32,6 +32,27 @@
       "correo": "vierja@example.com",
       "password": "MTIzNA==",
       "rol": "usuario"
+    },
+    {
+      "id": "c36f",
+      "usuario": "aaa",
+      "correo": "aaa@example.com",
+      "password": "MTIzNA==",
+      "rol": "usuario"
+    },
+    {
+      "id": "39e4",
+      "usuario": "naxo",
+      "correo": "naxo@example.com",
+      "password": "OTg3Ng==",
+      "rol": "usuario"
+    },
+    {
+      "id": "5bc1",
+      "usuario": "ola",
+      "correo": "ola@example.com",
+      "password": "Njc4OQ==",
+      "rol": "usuario"
     }
   ],
   "entrenadores": [

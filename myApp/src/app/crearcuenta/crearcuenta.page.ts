@@ -42,11 +42,17 @@ export class CrearcuentaPage implements OnInit {
       await this.presentAlert('La contraseña debe tener 4 dígitos numéricos');
       return;
     }
+
+    if (this.usuario.usuario.length < 3 || this.usuario.usuario.length > 8) {
+      await this.presentAlert('El nombre de usuario debe tener entre 3 a 8 caracteres.');
+      return;
+  }
     
     const passwordCodificada = btoa(this.usuario.password)
     this.usuario.password = passwordCodificada
 
     this.agregarUsuario()
+    await this.exitoAlert('Registrado con éxito')
 
   }
   
@@ -96,6 +102,19 @@ export class CrearcuentaPage implements OnInit {
 
     await alert.present();
 }
+
+  async exitoAlert(mensaje: string) {
+    const msg = mensaje;
+
+    const alert = await this.alert.create({
+      header: 'Éxito',
+      message: msg,
+      cssClass: 'alertaLogin',
+      buttons: [{ text: 'OK', cssClass: 'alert-button' }],
+    });
+
+    await alert.present();
+  }
 
   redireccionLogin() {
     this.router.navigate(['login']);
