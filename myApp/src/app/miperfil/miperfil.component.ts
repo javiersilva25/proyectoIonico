@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, IonicSafeString } from '@ionic/angular';
 import { IonicModule } from '@ionic/angular';
 import { Router,NavigationExtras,ActivatedRoute } from '@angular/router';
 
@@ -44,7 +44,7 @@ export class MiperfilComponent implements OnInit {
   }
 
   async presentAlert(nombre: string, apellido: string, nivelEducacional: string, fechaNac: string) {
-    const html = `Nombre: ${nombre} ${apellido}<br>Nivel Educacional: ${nivelEducacional}<br>Fecha de nacimiento: ${fechaNac}`;
+    const html = `Nombre: ${nombre} ${apellido}\nNivel Educacional: ${nivelEducacional}\nFecha de nacimiento: ${fechaNac}`;
   
     const alert = await this.alertController.create({
       header: 'Información de Usuario',

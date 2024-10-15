@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, IonicSafeString } from '@ionic/angular';
 import { ServicioService } from '../servicio.service';
 
 @Component({
@@ -24,6 +24,8 @@ export class CrearcuentaPage implements OnInit {
     rol: "usuario"
   };
 
+  password: string = "";
+  
   passwordRepetir:string = ""
 
   async crearCuenta() {
@@ -33,12 +35,12 @@ export class CrearcuentaPage implements OnInit {
       return;
     }
 
-    if (this.usuario.password !== this.passwordRepetir) {
+    if (this.password !== this.passwordRepetir) {
       await this.presentAlert('Las contraseñas no coinciden');
       return;
     }
   
-    if (this.usuario.password === "" || this.usuario.password.length !== 4) {
+    if (this.password === "" || this.password.length !== 4) {
       await this.presentAlert('La contraseña debe tener 4 dígitos numéricos');
       return;
     }
@@ -48,12 +50,10 @@ export class CrearcuentaPage implements OnInit {
       return;
   }
     
-    const passwordCodificada = btoa(this.usuario.password)
-    this.usuario.password = passwordCodificada
+    this.usuario.password = btoa(this.password)
 
     this.agregarUsuario()
-    await this.exitoAlert('Registrado con éxito')
-
+    
   }
   
   async agregarUsuario() {
@@ -76,11 +76,13 @@ export class CrearcuentaPage implements OnInit {
         );      
 
       }
+
   }catch{
 
     this.servicioService.agregarUsuario(this.usuario).subscribe(
       (response) => {
         console.log('Usuario agregado:', response);
+        this.exitoAlert('Registrado con éxito')
         this.router.navigate(['/login']);
       },
       (error) => {

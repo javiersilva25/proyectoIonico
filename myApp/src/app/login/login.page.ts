@@ -117,12 +117,20 @@ export class LoginPage implements OnInit {
   async validarRol() {
     try {
       if (this.usuario.rol === 'usuario') {
-        this.router.navigate(['home']);
+        this.navigateAfterLoading();
       } else if (this.usuario.rol === 'admin') {
         this.router.navigate(['crud-entrenamientos/agregar']);
       }
     } catch (error) {
       console.error('Error al obtener rol de usuario', error);
     }
+  }
+
+  private navigateAfterLoading() {
+    let navigationExtras: NavigationExtras = {
+      state: { user: this.login.usuario } 
+    };
+
+    this.router.navigate(['home/mi-perfil'], navigationExtras);
   }
 }

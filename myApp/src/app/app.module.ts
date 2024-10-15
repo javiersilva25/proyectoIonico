@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
     MiperfilComponent
   ],
   imports: [
+    IonicModule.forRoot({ innerHTMLTemplatesEnabled: true }),
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
