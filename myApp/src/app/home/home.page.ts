@@ -14,7 +14,7 @@ export class HomePage {
     private router: Router,
     private menu: MenuController,
     private loadingController: LoadingController,
-    private authService: AuthService
+    public authService: AuthService
   ) {
     const navigation = this.router.getCurrentNavigation();
     if (navigation && navigation.extras.state) {

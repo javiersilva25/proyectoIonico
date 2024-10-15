@@ -45,14 +45,18 @@ export class MiperfilComponent implements OnInit {
 
   async presentAlert(nombre: string, apellido: string, nivelEducacional: string, fechaNac: string) {
     const html = `Nombre: ${nombre} ${apellido}<br>Nivel Educacional: ${nivelEducacional}<br>Fecha de nacimiento: ${fechaNac}`;
-  
+    
     const alert = await this.alertController.create({
       header: 'Información de Usuario',
-      message: html,
+      message: '',
       cssClass: 'alertaHome',
       buttons: [{ text: 'OK', cssClass: 'alert-button' }],
     });
-
+  
+    alert.message = '';
+    alert.innerHTML = html;
+  
     await alert.present();
   }
+  
 }
