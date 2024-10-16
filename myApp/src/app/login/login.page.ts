@@ -4,6 +4,7 @@ import { AlertController, LoadingController } from '@ionic/angular';
 import type { IonInput } from '@ionic/angular';
 import { AuthService } from '../auth.service';
 import { ServicioService } from '../servicio.service';
+import {NativeAudio} from '@capacitor-community/native-audio'
 
 @Component({
   selector: 'app-login',
@@ -11,6 +12,12 @@ import { ServicioService } from '../servicio.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+
+  async play(){
+    await NativeAudio.play({
+      assetId: 'error',
+    });
+  }
 
   login: any = {
     usuario: "",
@@ -26,8 +33,9 @@ export class LoginPage implements OnInit {
     private router: Router,
     private loadingController: LoadingController,
     private authService: AuthService,
-    private servicioService: ServicioService
-  ) {}
+    private servicioService: ServicioService,
+  ) {
+  }
 
   ngOnInit() {}
 
@@ -59,6 +67,9 @@ export class LoginPage implements OnInit {
 
   // Método para mostrar alertas
   async presentAlert(mensaje: string) {
+
+    this.play();
+
     const alert = await this.alertController.create({
       header: 'Error al iniciar sesión',
       message: mensaje,
