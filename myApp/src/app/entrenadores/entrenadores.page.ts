@@ -14,7 +14,7 @@ export class EntrenadoresPage implements OnInit {
 
   constructor(private menu: MenuController, 
               private servicioService: ServicioService,
-              private authService: AuthService,
+              public authService: AuthService,
               private router: Router) {}
 
   ngOnInit() {
