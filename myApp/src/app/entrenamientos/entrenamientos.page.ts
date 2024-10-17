@@ -4,6 +4,7 @@ import { ServicioService } from '../servicio.service';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-entrenamientos',
   templateUrl: './entrenamientos.page.html',
@@ -40,4 +41,5 @@ export class EntrenamientosPage implements OnInit {
     this.authService.logout()
     this.router.navigate(['login']);
   }
+
 }
