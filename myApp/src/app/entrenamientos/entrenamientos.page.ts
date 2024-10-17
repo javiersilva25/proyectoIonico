@@ -3,6 +3,7 @@ import { MenuController } from '@ionic/angular';
 import { ServicioService } from '../servicio.service';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { AppComponent } from '../app.component';
 
 
 @Component({
@@ -16,7 +17,8 @@ export class EntrenamientosPage implements OnInit {
   constructor(private menu: MenuController, 
               private servicioService: ServicioService,
               public authService: AuthService,
-              private router: Router) {}
+              private router: Router,
+              private appComponent: AppComponent) {}
 
   ngOnInit() {
     this.getAllEntrenamientos();
@@ -38,6 +40,7 @@ export class EntrenamientosPage implements OnInit {
   }
 
   logout(){
+    this.appComponent.requestReview()
     this.authService.logout()
     this.router.navigate(['login']);
   }

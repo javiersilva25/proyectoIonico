@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import {NativeAudio} from '@capacitor-community/native-audio'
+import { InAppReview } from '@capacitor-community/in-app-review';
+
 
 @Component({
   selector: 'app-root',
@@ -25,5 +27,14 @@ export class AppComponent {
   });
   }
 
+  async requestReview() {
+    try {
+      await InAppReview.requestReview();
+      console.log('Solicitud de reseña enviada.');
+    } catch (error) {
+      console.error('Error al solicitar la reseña:', error);
+    }
+  }
+  
 
 }
