@@ -1,14 +1,14 @@
 {
   "entrenamientos": [
     {
-      "nombre": "Victor Cornou",
-      "descripcion": "Papapipo",
+      "nombre": "Entrenamiento de Fuerza",
+      "descripcion": "Centrado en ejercicios multiarticulares",
       "id": "abef"
     },
     {
-      "id": "9517",
-      "nombre": "VITOCO",
-      "descripcion": "RNOU"
+      "nombre": "Entrenamiento de hipertrofía",
+      "descripcion": "Centrado en la ganancia de músculo.",
+      "id": "9517"
     }
   ],
   "usuarios": [
@@ -64,9 +64,19 @@
   ],
   "entrenadores": [
     {
-      "id": "0d23",
       "nombre": "Ian Reyes",
-      "especialidad": "Analista"
+      "especialidad": "Hipertrofia",
+      "id": "0d23"
+    },
+    {
+      "id": "79a1",
+      "nombre": "Victor Cornou",
+      "especialidad": "Fuerza"
+    },
+    {
+      "id": "215d",
+      "nombre": "Joaquín Ferrada",
+      "especialidad": "Yoga"
     }
   ]
 }
