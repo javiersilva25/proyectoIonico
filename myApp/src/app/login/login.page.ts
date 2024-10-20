@@ -129,7 +129,7 @@ export class LoginPage implements OnInit {
     try {
       if (this.authService.isAdmin()) {
         this.router.navigate(['crud-entrenamientos/agregar']);
-      } else {
+      } else if (this.usuario.rol === 'usuario') {
         this.navigateAfterLoading();
       }
     } catch (error) {
