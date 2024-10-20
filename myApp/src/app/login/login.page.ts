@@ -127,15 +127,15 @@ export class LoginPage implements OnInit {
   // Método para validar el rol y redirigir según el tipo de usuario
   async validarRol() {
     try {
-      if (this.usuario.rol === 'usuario') {
-        this.navigateAfterLoading();
-      } else if (this.usuario.rol === 'admin') {
+      if (this.authService.isAdmin()) {
         this.router.navigate(['crud-entrenamientos/agregar']);
+      } else {
+        this.navigateAfterLoading();
       }
     } catch (error) {
-      console.error('Error al obtener rol de usuario', error);
+      console.error('Error al validar el rol', error);
     }
-  }
+  }  
 
   private navigateAfterLoading() {
     let navigationExtras: NavigationExtras = {
