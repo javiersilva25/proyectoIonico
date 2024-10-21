@@ -47,8 +47,6 @@ export class ServicioService {
     return this.http.get(`${this.apiURL}/usuarios?usuario=${usuario}`);
   }
 
-  //MÉTODOS POST
-
   //ENTRENAMIENTOS
 
   createEntrenamiento(post: any){

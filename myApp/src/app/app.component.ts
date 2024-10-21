@@ -23,7 +23,7 @@ export class AppComponent {
     
     NativeAudio.setVolume({
     assetId: 'error',
-    volume: 0.1,
+    volume: 0.5,
   });
   }
 
