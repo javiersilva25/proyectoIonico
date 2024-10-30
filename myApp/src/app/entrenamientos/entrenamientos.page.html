@@ -56,6 +56,10 @@
         <h2>{{ entrenamiento.nombre }}</h2>
         <p>{{ entrenamiento.descripcion }}</p>
       </ion-label>
+      <ion-button (click)="agregarAMisEntrenos(entrenamiento)" slot="end" color="primary">
+        Agregar
+      </ion-button>
     </ion-item>
   </ion-list>
 </ion-content>
+

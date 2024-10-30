@@ -6,10 +6,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { MiperfilComponent } from './miperfil/miperfil.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';  
 import { HttpClientModule } from '@angular/common/http';
+import { MisentrenosComponent } from './misentrenos/misentrenos.component';
 @NgModule({
   declarations: [
     AppComponent,
-    MiperfilComponent
+    MiperfilComponent,
+    MisentrenosComponent
   ],
   imports: [
     IonicModule.forRoot({ innerHTMLTemplatesEnabled: true }),

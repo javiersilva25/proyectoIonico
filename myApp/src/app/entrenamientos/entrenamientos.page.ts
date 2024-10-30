@@ -5,7 +5,6 @@ import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { AppComponent } from '../app.component';
 
-
 @Component({
   selector: 'app-entrenamientos',
   templateUrl: './entrenamientos.page.html',
@@ -13,7 +12,7 @@ import { AppComponent } from '../app.component';
 })
 export class EntrenamientosPage implements OnInit {
   entrenamientos: any[] = [];
-
+  
   constructor(private menu: MenuController, 
               private servicioService: ServicioService,
               public authService: AuthService,
@@ -35,14 +34,18 @@ export class EntrenamientosPage implements OnInit {
     );
   }
 
+  agregarAMisEntrenos(entrenamiento: any) {
+    this.servicioService.addToMisEntrenos(entrenamiento);
+    this.router.navigate(['home/mis-entrenamientos']);
+  }
+
   closeMenu() {
     this.menu.close();
   }
 
   logout(){
-    this.appComponent.requestReview()
-    this.authService.logout()
+    this.appComponent.requestReview();
+    this.authService.logout();
     this.router.navigate(['login']);
   }
-
 }

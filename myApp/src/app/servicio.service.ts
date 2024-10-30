@@ -8,16 +8,17 @@ import { Observable } from 'rxjs';
 export class ServicioService {
   httpOptions = {
     headers: new HttpHeaders({
-    'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin' :'*'
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*'
     })
-    }
+  };
 
   apiURL = 'http://localhost:3000';
+  private misEntrenos: any[] = [];  // Arreglo para almacenar los entrenamientos personales
 
   constructor(private http: HttpClient) {}
 
-    //MÉTODOS GET
+  // MÉTODOS GET
 
   getEntrenamientos(id: string) {
     return this.http.get(`${this.apiURL}/entrenamientos/${id}`);
@@ -47,48 +48,55 @@ export class ServicioService {
     return this.http.get(`${this.apiURL}/usuarios?usuario=${usuario}`);
   }
 
-  //ENTRENAMIENTOS
+  // ENTRENAMIENTOS
 
-  createEntrenamiento(post: any){
-    return this.http.post(this.apiURL+'/entrenamientos/',post,this.httpOptions);
+  createEntrenamiento(post: any) {
+    return this.http.post(`${this.apiURL}/entrenamientos`, post, this.httpOptions);
   }
 
-  eliminarEntrenamiento(id:string): Observable<any>{
+  eliminarEntrenamiento(id: string): Observable<any> {
     return this.http.delete(`${this.apiURL}/entrenamientos/${id}`);
   }
 
-  actualizarEntrenamiento(id:string, entrenamiento:any):Observable<any>{
-    return this.http.put(`${this.apiURL}/entrenamientos/${id}`, entrenamiento)
+  actualizarEntrenamiento(id: string, entrenamiento: any): Observable<any> {
+    return this.http.put(`${this.apiURL}/entrenamientos/${id}`, entrenamiento);
   }
 
-  //ENTRENADORES
+  // ENTRENADORES
 
   agregarEntrenador(entrenador: any): Observable<any> {
     return this.http.post(`${this.apiURL}/entrenadores`, entrenador);
   }
 
-  actualizarEntrenador(id:string, entrenador:any):Observable<any>{
-    return this.http.put(`${this.apiURL}/entrenadores/${id}`, entrenador)
+  actualizarEntrenador(id: string, entrenador: any): Observable<any> {
+    return this.http.put(`${this.apiURL}/entrenadores/${id}`, entrenador);
   }
 
-  eliminarEntrenador(id:string): Observable<any>{
-    return this.http.delete(`${this.apiURL}/entrenadores/${id}`)
+  eliminarEntrenador(id: string): Observable<any> {
+    return this.http.delete(`${this.apiURL}/entrenadores/${id}`);
   }
 
-  //USUARIOS
+  // USUARIOS
 
   agregarUsuario(usuario: any): Observable<any> {
     return this.http.post(`${this.apiURL}/usuarios`, usuario);
   }
 
-  actualizarUsuario(id:string, usuario:any):Observable<any>{
-    return this.http.put(`${this.apiURL}/usuarios/${id}`, usuario)
+  actualizarUsuario(id: string, usuario: any): Observable<any> {
+    return this.http.put(`${this.apiURL}/usuarios/${id}`, usuario);
   }
 
-  eliminarUsuario(id:string): Observable<any>{
-    return this.http.delete(`${this.apiURL}/usuarios/${id}`)
+  eliminarUsuario(id: string): Observable<any> {
+    return this.http.delete(`${this.apiURL}/usuarios/${id}`);
   }
 
+  // MÉTODOS PARA MIS ENTRENOS
 
+  addToMisEntrenos(entrenamiento: any) {
+    this.misEntrenos.push(entrenamiento);
+  }
 
+  getMisEntrenos() {
+    return this.misEntrenos;
+  }
 }

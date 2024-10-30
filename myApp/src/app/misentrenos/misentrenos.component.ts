@@ -1,14 +1,21 @@
 import { Component, OnInit } from '@angular/core';
+import { ServicioService } from '../servicio.service';
 
 @Component({
   selector: 'app-misentrenos',
   templateUrl: './misentrenos.component.html',
   styleUrls: ['./misentrenos.component.scss'],
 })
-export class MisentrenosComponent  implements OnInit {
+export class MisentrenosComponent implements OnInit {
+  entrenamientos: any[] = [];
 
-  constructor() { }
+  constructor(private servicioService: ServicioService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getMisEntrenos();
+  }
 
+  getMisEntrenos() {
+    this.entrenamientos = this.servicioService.getMisEntrenos();
+  }
 }
