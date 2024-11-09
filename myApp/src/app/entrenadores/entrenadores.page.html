@@ -58,6 +58,9 @@
     <ion-item *ngFor="let entrenador of entrenadores">
       <ion-label>{{entrenador.nombre}}</ion-label>
       <ion-label>{{entrenador.especialidad}}</ion-label>
+      <ion-button (click)="agregarAMisEntrenadores(entrenador)" slot="end" color="primary">
+        Agregar
+      </ion-button>
     </ion-item>
   </ion-list>
 </ion-content>

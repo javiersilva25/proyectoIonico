@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServicioService } from '../servicio.service';
 
 @Component({
   selector: 'app-misentrenadores',
@@ -6,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./misentrenadores.component.scss'],
 })
 export class MisentrenadoresComponent  implements OnInit {
+  entrenadores: any[] = [];
+  constructor(private servicioService: ServicioService) {}
 
-  constructor() { }
+  ngOnInit() {
+    this.getMisEntrenadores();
+  }
 
-  ngOnInit() {}
+  getMisEntrenadores() {
+    this.entrenadores = this.servicioService.getMisEntrenadores();
+  }
+
+  eliminarMisEntrenadores(index: number) {
+    this.servicioService.eliminarMisEntrenadores(index);
+  }
 
 }

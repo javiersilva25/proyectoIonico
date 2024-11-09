@@ -18,4 +18,9 @@ export class MisentrenosComponent implements OnInit {
   getMisEntrenos() {
     this.entrenamientos = this.servicioService.getMisEntrenos();
   }
+
+  eliminarMiEntreno(index: number) {
+    this.servicioService.eliminarMisEntrenos(index);
+  }
+  
 }

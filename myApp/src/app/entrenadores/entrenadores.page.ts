@@ -36,6 +36,10 @@ export class EntrenadoresPage implements OnInit {
     this.menu.close();
   }
 
+  agregarAMisEntrenadores(entrenador: any) {
+    this.servicioService.addToMisEntrenadores(entrenador);
+  }
+
   logout(){
     this.authService.logout()
     this.router.navigate(['login']);

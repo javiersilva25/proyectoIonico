@@ -36,7 +36,6 @@ export class EntrenamientosPage implements OnInit {
 
   agregarAMisEntrenos(entrenamiento: any) {
     this.servicioService.addToMisEntrenos(entrenamiento);
-    this.router.navigate(['home/mis-entrenamientos']);
   }
 
   closeMenu() {

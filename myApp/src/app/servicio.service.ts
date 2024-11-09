@@ -96,7 +96,23 @@ export class ServicioService {
     this.misEntrenos.push(entrenamiento);
   }
 
+  eliminarMisEntrenos(index: number) {
+    this.misEntrenos.splice(index, 1);
+  }
   getMisEntrenos() {
+    return this.misEntrenos;
+  }
+
+  // MÉTODOS PARA MIS ENTRENADORES
+
+  addToMisEntrenadores(entrenador: any) {
+    this.misEntrenos.push(entrenador);
+  }
+
+  eliminarMisEntrenadores(index: number) {
+    this.misEntrenos.splice(index, 1);
+  }
+  getMisEntrenadores() {
     return this.misEntrenos;
   }
 }

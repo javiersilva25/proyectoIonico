@@ -1,8 +1,9 @@
 <ion-list>
-  <ion-item *ngFor="let entrenamiento of entrenamientos">
+  <ion-item *ngFor="let entrenamiento of entrenamientos; let i = index">
     <ion-label>
       <h2>{{ entrenamiento.nombre }}</h2>
       <p>{{ entrenamiento.descripcion }}</p>
     </ion-label>
+    <ion-button (click) = "eliminarMiEntreno(i)">Eliminar</ion-button>
   </ion-item>
 </ion-list>

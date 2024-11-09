@@ -1,3 +1,10 @@
-<p>
-  misentrenadores works!
-</p>
+<ion-list>
+  <ion-item *ngFor="let entrenador of entrenadores; let i = index">
+    <ion-label>
+      <h2>{{ entrenador.nombre }}</h2>
+      <p>{{ entrenador.especialidad }}</p>
+    </ion-label>
+    <ion-button (click)="eliminarMisEntrenadores(i)">Eliminar</ion-button>
+  </ion-item>
+</ion-list>
+

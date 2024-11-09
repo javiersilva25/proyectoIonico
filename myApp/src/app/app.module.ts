@@ -7,11 +7,13 @@ import { MiperfilComponent } from './miperfil/miperfil.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';  
 import { HttpClientModule } from '@angular/common/http';
 import { MisentrenosComponent } from './misentrenos/misentrenos.component';
+import { MisentrenadoresComponent } from './misentrenadores/misentrenadores.component';
 @NgModule({
   declarations: [
     AppComponent,
     MiperfilComponent,
-    MisentrenosComponent
+    MisentrenosComponent,
+    MisentrenadoresComponent
   ],
   imports: [
     IonicModule.forRoot({ innerHTMLTemplatesEnabled: true }),
