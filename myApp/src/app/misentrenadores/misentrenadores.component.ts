@@ -21,6 +21,6 @@ export class MisentrenadoresComponent implements OnInit {
 
   eliminarMisEntrenadores(index: number) {
     this.servicioService.eliminarMisEntrenadores(index);
-    this.getMisEntrenadores(); // Refresca la lista después de eliminar
+    this.getMisEntrenadores();
   }
 }
