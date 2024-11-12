@@ -14,7 +14,9 @@ export class ServicioService {
   };
 
   apiURL = 'http://localhost:3000';
-  private misEntrenos: any[] = [];  // Arreglo para almacenar los entrenamientos personales
+  private misEntrenos: any[] = [];
+  private misEntrenadores: any[] = [];
+
 
   constructor(private http: HttpClient) {}
 
@@ -90,29 +92,37 @@ export class ServicioService {
     return this.http.delete(`${this.apiURL}/usuarios/${id}`);
   }
 
-  // MÉTODOS PARA MIS ENTRENOS
+// MÉTODOS PARA MIS ENTRENOS
+addToMisEntrenos(entrenamiento: any) {
+  this.misEntrenos.push(entrenamiento);
+  localStorage.setItem('misEntrenos', JSON.stringify(this.misEntrenos));
+}
 
-  addToMisEntrenos(entrenamiento: any) {
-    this.misEntrenos.push(entrenamiento);
-  }
+eliminarMisEntrenos(index: number) {
+  this.misEntrenos.splice(index, 1);
+  localStorage.setItem('misEntrenos', JSON.stringify(this.misEntrenos));
+}
 
-  eliminarMisEntrenos(index: number) {
-    this.misEntrenos.splice(index, 1);
-  }
-  getMisEntrenos() {
-    return this.misEntrenos;
-  }
+getMisEntrenos() {
+  const storedEntrenos = localStorage.getItem('misEntrenos');
+  this.misEntrenos = storedEntrenos ? JSON.parse(storedEntrenos) : [];
+  return this.misEntrenos;
+}
 
-  // MÉTODOS PARA MIS ENTRENADORES
+// MÉTODOS PARA MIS ENTRENADORES
+addToMisEntrenadores(entrenador: any) {
+  this.misEntrenadores.push(entrenador);
+  localStorage.setItem('misEntrenadores', JSON.stringify(this.misEntrenadores));
+}
 
-  addToMisEntrenadores(entrenador: any) {
-    this.misEntrenos.push(entrenador);
-  }
+eliminarMisEntrenadores(index: number) {
+  this.misEntrenadores.splice(index, 1);
+  localStorage.setItem('misEntrenadores', JSON.stringify(this.misEntrenadores));
+}
 
-  eliminarMisEntrenadores(index: number) {
-    this.misEntrenos.splice(index, 1);
-  }
-  getMisEntrenadores() {
-    return this.misEntrenos;
-  }
+getMisEntrenadores() {
+  const storedEntrenadores = localStorage.getItem('misEntrenadores');
+  this.misEntrenadores = storedEntrenadores ? JSON.parse(storedEntrenadores) : [];
+  return this.misEntrenadores;
+}
 }

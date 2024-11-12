@@ -6,8 +6,9 @@ import { ServicioService } from '../servicio.service';
   templateUrl: './misentrenadores.component.html',
   styleUrls: ['./misentrenadores.component.scss'],
 })
-export class MisentrenadoresComponent  implements OnInit {
+export class MisentrenadoresComponent implements OnInit {
   entrenadores: any[] = [];
+
   constructor(private servicioService: ServicioService) {}
 
   ngOnInit() {
@@ -20,6 +21,6 @@ export class MisentrenadoresComponent  implements OnInit {
 
   eliminarMisEntrenadores(index: number) {
     this.servicioService.eliminarMisEntrenadores(index);
+    this.getMisEntrenadores(); // Refresca la lista después de eliminar
   }
-
 }
