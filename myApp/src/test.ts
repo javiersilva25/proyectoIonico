@@ -1,5 +1,3 @@
-// This file is required by karma.conf.js and loads recursively all the .spec and framework files
-
 import 'zone.js/testing';
 import { getTestBed } from '@angular/core/testing';
 import {
@@ -7,8 +5,15 @@ import {
   platformBrowserDynamicTesting
 } from '@angular/platform-browser-dynamic/testing';
 
-// First, initialize the Angular testing environment.
+// Inicializa el entorno de pruebas de Angular
 getTestBed().initTestEnvironment(
   BrowserDynamicTestingModule,
-  platformBrowserDynamicTesting(),
+  platformBrowserDynamicTesting()
 );
+
+// **Solo importa las pruebas del componente LoginPage**
+import './app/login/login.page.spec';  // Solo importa las pruebas de LoginPage
+
+// Si tienes otros archivos de pruebas, **déjalos comentados** para evitar que se ejecuten:
+// import './app/otro-componente/otro-componente.spec'; // Descomenta si quieres probar otro componente
+// import './app/servicios/servicio.spec';            // Descomenta si quieres probar un servicio, etc.
