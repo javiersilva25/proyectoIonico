@@ -6,6 +6,7 @@ import { AuthService } from '../auth.service';
 import { ServicioService } from '../servicio.service';
 import { NativeAudio } from '@capacitor-community/native-audio';
 import { of, throwError } from 'rxjs';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 // Mock de los servicios
 class MockAuthService {
@@ -32,6 +33,7 @@ describe('LoginPage', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
       declarations: [LoginPage],
       providers: [
         { provide: AuthService, useClass: MockAuthService },
@@ -39,9 +41,9 @@ describe('LoginPage', () => {
         { provide: Router, useClass: MockRouter },
         AlertController,
         LoadingController,
-      ]
+      ],
     });
-
+  
     fixture = TestBed.createComponent(LoginPage);
     component = fixture.componentInstance;
     authService = TestBed.inject(AuthService);
@@ -49,7 +51,7 @@ describe('LoginPage', () => {
     router = TestBed.inject(Router);
     alertController = TestBed.inject(AlertController);
     loadingController = TestBed.inject(LoadingController);
-
+  
     fixture.detectChanges();
   });
 
