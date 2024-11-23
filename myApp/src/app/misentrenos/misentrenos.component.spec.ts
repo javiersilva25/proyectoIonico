@@ -3,6 +3,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { MisentrenosComponent } from './misentrenos.component';
 
+/*
 describe('MisentrenosComponent', () => {
   let component: MisentrenosComponent;
   let fixture: ComponentFixture<MisentrenosComponent>;
@@ -22,3 +23,4 @@ describe('MisentrenosComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+*/

@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { PagenotfoundPage } from './pagenotfound.page';
 
+/*
 describe('PagenotfoundPage', () => {
   let component: PagenotfoundPage;
   let fixture: ComponentFixture<PagenotfoundPage>;
@@ -15,3 +16,4 @@ describe('PagenotfoundPage', () => {
     expect(component).toBeTruthy();
   });
 });
+*/

@@ -114,7 +114,7 @@ export class LoginPage implements OnInit {
       if (this.contrasena === this.usuario.password && this.contrasena !== '') {
         return true;
       } else {
-        await this.presentAlert('Contraseña incorrecta');
+        await this.presentAlert('Error al validar el usuario');
         return false;
       }
     } catch (error) {

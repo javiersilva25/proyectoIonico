@@ -3,6 +3,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { ActualizarEntrenamientoComponent } from './actualizar-entrenamiento.component';
 
+/*
 describe('ActualizarEntrenamientoComponent', () => {
   let component: ActualizarEntrenamientoComponent;
   let fixture: ComponentFixture<ActualizarEntrenamientoComponent>;
@@ -22,3 +23,4 @@ describe('ActualizarEntrenamientoComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+*/

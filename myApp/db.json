@@ -60,6 +60,13 @@
       "correo": "asdas",
       "password": "MTIzNA==",
       "rol": "usuario"
+    },
+    {
+      "id": "cbfc",
+      "usuario": "test",
+      "correo": "test@gmail.com",
+      "password": "MTIzNA==",
+      "rol": "usuario"
     }
   ],
   "entrenadores": [

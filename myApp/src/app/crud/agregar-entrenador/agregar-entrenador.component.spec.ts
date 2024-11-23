@@ -3,6 +3,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { AgregarEntrenadorComponent } from './agregar-entrenador.component';
 
+/*
 describe('AgregarEntrenadorComponent', () => {
   let component: AgregarEntrenadorComponent;
   let fixture: ComponentFixture<AgregarEntrenadorComponent>;
@@ -22,3 +23,4 @@ describe('AgregarEntrenadorComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+*/

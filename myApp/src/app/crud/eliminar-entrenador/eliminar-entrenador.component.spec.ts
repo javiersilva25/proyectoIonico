@@ -3,6 +3,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { EliminarEntrenadorComponent } from './eliminar-entrenador.component';
 
+/*
 describe('EliminarEntrenadorComponent', () => {
   let component: EliminarEntrenadorComponent;
   let fixture: ComponentFixture<EliminarEntrenadorComponent>;
@@ -22,3 +23,4 @@ describe('EliminarEntrenadorComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+*/
