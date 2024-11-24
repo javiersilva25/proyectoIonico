@@ -137,7 +137,7 @@ export class LoginPage implements OnInit {
     }
   }  
 
-  private navigateAfterLoading() {
+  navigateAfterLoading() {
     let navigationExtras: NavigationExtras = {
       state: { user: this.login.usuario } 
     };
