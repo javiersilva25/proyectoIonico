@@ -19,6 +19,12 @@ export class LoginPage implements OnInit {
     });
   }
 
+  private _servicioService: ServicioService;
+
+  get servicioService() {
+    return this._servicioService;
+  }
+
   login: any = {
     usuario: "",
     password: ""
@@ -33,26 +39,28 @@ export class LoginPage implements OnInit {
     private router: Router,
     private loadingController: LoadingController,
     private authService: AuthService,
-    private servicioService: ServicioService,
+    servicioService: ServicioService,
   ) {
+    this._servicioService = servicioService;
   }
 
   ngOnInit() {}
 
   async validarLogin() {
     if (!await this.validarContrasena()) {
+      await this.presentAlert('Error al validar el usuario');
       return false;
     }
 
     const loading = await this.loadingUI();
-    
-    setTimeout(async () => {
-      this.authService.storeToken(this.token, this.usuario.rol);
 
-      await this.validarRol();
+    await new Promise(resolve => setTimeout(resolve, 1000));
 
-      loading.dismiss();
-    }, 1000);
+    this.authService.storeToken(this.token, this.usuario.rol);
+
+    await this.validarRol();
+
+    loading.dismiss();
 
     return true;
   }

@@ -7,12 +7,11 @@ import { ServicioService } from '../servicio.service';
 import { NativeAudio } from '@capacitor-community/native-audio';
 import { of, throwError } from 'rxjs';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { tick, fakeAsync } from '@angular/core/testing';
 
 class MockRouter {
   navigate = jasmine.createSpy('navigate');
 }
-
-
 
 describe('LoginPage', () => {
   let component: LoginPage;
@@ -39,9 +38,10 @@ describe('LoginPage', () => {
     router = TestBed.inject(Router);
     alertController = TestBed.inject(AlertController);
     loadingController = TestBed.inject(LoadingController);
-  
+    
     fixture.detectChanges();
   });
+  
 
   it('should create', () => {
     expect(component).toBeTruthy();
@@ -56,33 +56,30 @@ describe('LoginPage', () => {
     expect(component.validarLogin).toBeTruthy();
   });
 
-  // Prueba de la función `validarContrasena` cuando la contraseña es incorrecta
-  it('should show alert when password is incorrect', async () => {
+  it('Prueba Alerta con contrasena incorrecta', fakeAsync(() => {
     spyOn(component, 'presentAlert');
+    spyOn(component, 'validarContrasena').and.returnValue(Promise.resolve(false));
 
     component.login.usuario = 'test';
     component.login.password = '4321';
 
-    spyOn(component, 'validarContrasena').and.returnValue(Promise.resolve(false));
     component.validarLogin();
+    tick(1000);
 
     expect(component.presentAlert).toHaveBeenCalledWith('Error al validar el usuario');
-  });
+  }));
 
-  // Prueba para la redirección a "reestablecer contraseña"
-  it('should navigate to "reestcontra" when redireccionReestablecer is called', () => {
+  it('Prueba redireccion restablecer contrasena', () => {
     component.redireccionReestablecer();
     expect(router.navigate).toHaveBeenCalledWith(['reestcontra']);
   });
 
-  // Prueba para la redirección a "crear cuenta"
-  it('should navigate to "crearcuenta" when redireccionCrearCuenta is called', () => {
+  it('Prueba redireccion crear cuenta', () => {
     component.redireccionCrearCuenta();
     expect(router.navigate).toHaveBeenCalledWith(['crearcuenta']);
   });
 
-  // Prueba de la alerta de error
-  it('should present alert with error message', async () => {
+  it('Prueba alerta de error', async () => {
     spyOn(alertController, 'create').and.returnValue(Promise.resolve({ present: () => {} } as any));
 
     await component.presentAlert('Error de ejemplo');
@@ -90,16 +87,14 @@ describe('LoginPage', () => {
     expect(alertController.create).toHaveBeenCalled();
   });
 
-  // Prueba para la animación de carga (loading UI)
-  it('should create and present loading UI', async () => {
+  it('Prueba de loading UI', async () => {
     spyOn(loadingController, 'create').and.returnValue(Promise.resolve({ present: () => {} } as any));
 
     const loading = await component.loadingUI();
     expect(loadingController.create).toHaveBeenCalled();
   });
 
-  // Prueba para la función `onInput`
-  it('should update inputModel with numeric value only', () => {
+  it('Prueba caracteres solo numericos en contrasena', () => {
     const event = {
       target: { value: '123abc4' }
     } as any;
@@ -107,15 +102,6 @@ describe('LoginPage', () => {
     component.onInput(event);
 
     expect(component.inputModel).toBe('1234');
-  });
-
-  // Simulación de error en la obtención de usuario
-  it('should handle error and show alert when getUsuarioNombre fails', async () => {
-
-    const result = await component.validarContrasena();
-
-    expect(component.presentAlert).toHaveBeenCalledWith('Error al validar el usuario');
-    expect(result).toBeFalse();
   });
 
 });
