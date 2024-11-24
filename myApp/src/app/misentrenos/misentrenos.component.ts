@@ -21,6 +21,6 @@ export class MisentrenosComponent implements OnInit {
 
   eliminarMiEntreno(index: number) {
     this.servicioService.eliminarMisEntrenos(index);
+    this.getMisEntrenos();
   }
-  
 }
