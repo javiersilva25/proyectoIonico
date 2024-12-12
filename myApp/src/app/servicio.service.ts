@@ -13,7 +13,7 @@ export class ServicioService {
     })
   };
 
-  apiURL = 'http://localhost:3000';
+  apiURL = 'https://4d728c0d-cfb9-439e-a079-5c0bfbbb02b7-00-3ku8xsawh42bs.worf.replit.dev/';
   private misEntrenos: any[] = [];
   private misEntrenadores: any[] = [];
 
@@ -23,31 +23,31 @@ export class ServicioService {
   // MÉTODOS GET
 
   getEntrenamientos(id: string) {
-    return this.http.get(`${this.apiURL}/entrenamientos/${id}`);
+    return this.http.get(`${this.apiURL}/entrenamientos/${id}`, {headers: this.httpOptions.headers});
   }
 
   getAllEntrenamientos() {
-    return this.http.get(`${this.apiURL}/entrenamientos`);
+    return this.http.get(`${this.apiURL}/entrenamientos`, {headers: this.httpOptions.headers});
   }
 
   getUsuario(id: string) {
-    return this.http.get(`${this.apiURL}/usuarios/${id}`);
+    return this.http.get(`${this.apiURL}/usuarios/${id}`, {headers: this.httpOptions.headers});
   }
 
   getAllUsuarios() {
-    return this.http.get(`${this.apiURL}/usuarios`);
+    return this.http.get(`${this.apiURL}/usuarios`, {headers: this.httpOptions.headers});
   }
 
   getEntrenador(id: string) {
-    return this.http.get(`${this.apiURL}/entrenadores/${id}`);
+    return this.http.get(`${this.apiURL}/entrenadores/${id}`, {headers: this.httpOptions.headers});
   }
 
   getAllEntrenadores() {
-    return this.http.get(`${this.apiURL}/entrenadores`);
+    return this.http.get(`${this.apiURL}/entrenadores`, {headers: this.httpOptions.headers});
   }
 
   getUsuarioNombre(usuario: string){
-    return this.http.get(`${this.apiURL}/usuarios?usuario=${usuario}`);
+    return this.http.get(`${this.apiURL}/usuarios?usuario=${usuario}`, {headers: this.httpOptions.headers});
   }
 
   // ENTRENAMIENTOS
