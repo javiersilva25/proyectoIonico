@@ -13,7 +13,7 @@ export class ServicioService {
     })
   };
 
-  apiURL = 'https://4d728c0d-cfb9-439e-a079-5c0bfbbb02b7-00-3ku8xsawh42bs.worf.replit.dev/';
+  apiURL = 'https://4d728c0d-cfb9-439e-a079-5c0bfbbb02b7-00-3ku8xsawh42bs.worf.replit.dev';
   private misEntrenos: any[] = [];
   private misEntrenadores: any[] = [];
 
